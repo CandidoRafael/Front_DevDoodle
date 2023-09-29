@@ -1,9 +1,9 @@
-## Projeto DevDoodle
+# Projeto DevDoodle
 
 Esse projeto será um blog para publicações sobre tecnologia, dicas e tutoriais.
 Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 
-# Tecnologias utilizadas:
+## Tecnologias utilizadas:
 
 - Vite
 - React
@@ -14,14 +14,14 @@ Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 - React-Hook-Form
 - Context-API
 
-# Back-End
+## Back-End
   
 - MongoDB
 - Mongoose
 - Express
 - Node.JS
 
-# Deploy : Loading...
+## Deploy : Loading...
 
 Se você quiser rodar o projeto na sua máquina, siga estes passos:
 
