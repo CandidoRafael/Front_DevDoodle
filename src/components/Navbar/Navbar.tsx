@@ -2,14 +2,12 @@ import { Button, Container, Hamburger, ImageLogo, InputSpace, Nav } from './Navb
 import { BiSearch } from 'react-icons/bi'
 import { GrMenu } from 'react-icons/gr'
 import logo from '../../assets/logo.png'
+import { Outlet } from 'react-router-dom'
 
-type NavbarProps = {
-  setToggleMenu: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const Navbar = ({ setToggleMenu }: NavbarProps) => {
+const Navbar = () => {
 
   return (
+    <>
       <Nav>
         <ImageLogo src={logo} alt="logo DevDoodle" />
 
@@ -20,11 +18,13 @@ const Navbar = ({ setToggleMenu }: NavbarProps) => {
 
         <Container>
         <Button>Entrar</Button>
-          <Hamburger onClick={() => setToggleMenu(true)}>
+          <Hamburger>
               <GrMenu />
           </Hamburger>
         </Container>
       </Nav>
+  <Outlet />
+    </>
   )
 }
 

@@ -74,7 +74,7 @@ export const Button = styled.button`
   border-radius: .5rem;
   font-size: 1rem;
   background-color: var(--color-baby-blue);
-  transition: .5s all ease-in-out;
+  transition: .4s all ease-in-out;
   
   &:hover {
     border: 1px solid var(--color-baby-blue);
@@ -88,10 +88,16 @@ export const Button = styled.button`
 `
 
 export const Hamburger = styled.span`
-
+  cursor: pointer;
+  transition: .3s all linear;
   svg{
     font-size: 1.6rem;  
     }
+
+    &:hover {
+      transform: scale(1.2)
+    }
+
 ` 
 
 export const Container = styled.div`

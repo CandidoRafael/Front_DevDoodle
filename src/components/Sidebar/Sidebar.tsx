@@ -5,6 +5,7 @@ import { BsPostcard } from 'react-icons/bs'
 import { MdBalance } from 'react-icons/md'
 import { FaPowerOff } from 'react-icons/fa'
 import { GrClose } from 'react-icons/gr'
+import './Sidebar.css'
 
 type SidebarProps = {
   toggleMenu: boolean
