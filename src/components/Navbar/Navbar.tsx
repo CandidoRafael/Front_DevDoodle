@@ -1,20 +1,35 @@
 import { Button, Container, Hamburger, ImageLogo, InputSpace, Nav } from './Navbar.styled'
-import { BiSearch } from 'react-icons/bi'
 import { GrMenu } from 'react-icons/gr'
 import logo from '../../assets/logo.png'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { BiSearch } from 'react-icons/bi'
 
 const Navbar = () => {
+
+  const { register, handleSubmit, formState, reset } = useForm()
+  
+  const navigate = useNavigate()
+
+  const handleSearch = (data:any) => {
+    console.log(data)
+    navigate(`/search/${data.title}`)
+    reset()
+  }
 
   return (
     <>
       <Nav>
-        <ImageLogo src={logo} alt="logo DevDoodle" />
+        <Link to='/'>
+          <ImageLogo src={logo} alt="logo DevDoodle" />
+        </Link>
 
-        <InputSpace>
-            <BiSearch />
-            <input type="text" name="" id="" placeholder='Procure uma publicação...' />
-        </InputSpace>
+          <form onSubmit={handleSubmit(handleSearch)} >
+            <InputSpace>
+                  <button><BiSearch /></button>
+                  <input type="text" {...register("title")} placeholder='Pesquise...' />
+            </InputSpace>
+          </form>
 
         <Container>
         <Button>Entrar</Button>

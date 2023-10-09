@@ -29,40 +29,43 @@ export const InputSpace = styled.div`
   display: flex;
   align-items: center;
 
+
   @media (max-width: 560px) {
       width: 15rem;
     }
 
-  svg {
-    position: absolute;
-    top: 1;
-    font-size: 2.4rem;
-    right: .3rem;
-    
-    border: none;
-    color: var(--color-baby-blue);
-    padding: 0.5rem;
-  }
-
-  input {
-    outline: none;
-    font-size: 1.2rem;
-    padding: 0.6rem;
-    background-color: #f5f5f5;
-    border: 1px solid transparent;
-    width: 100%;
-    border-radius: .5rem;
-    transition: .5s all ease-in-out;
-
-    @media (max-width: 660px) {
-      font-size: 1rem;
+    button {
+      position: absolute;
+      top: 1;
+      left: 1.9%;
+      border: none;
+      z-index: 1;
+      background-color: transparent;
+      font-size: 1.4rem;
+      padding-top: .3rem;
+      cursor: pointer;
+      color: var(--color-baby-blue);
     }
 
-    &:focus {
-      border: 1px solid var(--color-baby-blue);
-    }
-  }
+      input {
+        border: 1px solid red;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.7rem 1.9rem;
+        background-color: #f5f5f5;
+        border: 1px solid transparent;
+        width: 100%;
+        border-radius: .5rem;
+        transition: .5s all ease-in-out;
 
+        &:focus {
+          border: 1px solid var(--color-baby-blue);
+        }
+
+        @media (max-width: 660px) {
+          font-size: 1rem;
+      }
+}
 `
 
 export const Button = styled.button`

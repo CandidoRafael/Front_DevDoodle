@@ -5,19 +5,21 @@ import Navbar from './components/Navbar/Navbar.tsx'
 import Home from './pages/Home/Home.tsx'
 import Search from './pages/Search/Search.tsx'
 import { GlobalStyled } from './Global.styled.tsx'
+import ErrorPage from './pages/ErrorPage/ErrorPage.tsx'
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element:  <Navbar />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
         element: <Home />
       },
       {
-        path: '/search',
+        path: '/search/:title',
         element: <Search />
       }
     ]

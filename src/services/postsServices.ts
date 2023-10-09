@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://api-devdoodle.onrender.com' 
+const baseURL = 'https://apidevdoodle.vercel.app' 
 
 export const getAllPosts =  () => {
     const response =  axios.get(`${baseURL}/posts`)
