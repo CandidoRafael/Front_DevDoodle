@@ -10,4 +10,5 @@ export const searchServices = () => {
       return response.data
   }
 
+  return { searchPosts }
 }
