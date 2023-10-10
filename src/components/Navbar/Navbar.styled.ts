@@ -35,27 +35,27 @@ export const InputSpace = styled.div`
     }
 
     button {
-      position: absolute;
-      top: 1;
-      left: 1.9%;
-      border: none;
-      z-index: 1;
-      background-color: transparent;
+      border: none; 
       font-size: 1.4rem;
-      padding-top: .3rem;
+      background-color: var(--color-baby-blue);
+      padding: 0.63rem;
       cursor: pointer;
-      color: var(--color-baby-blue);
+      border-radius: 0 .5rem .5rem 0;
+      color: #f5f5f5;
+      height: 100%;
+
     }
 
       input {
         border: 1px solid red;
         outline: none;
         font-size: 1.2rem;
-        padding: 0.7rem 1.9rem;
+        padding: 0.7rem;
         background-color: #f5f5f5;
         border: 1px solid transparent;
         width: 100%;
-        border-radius: .5rem;
+        height: 100%;
+        border-radius: .5rem 0 0 .5rem;
         transition: .5s all ease-in-out;
 
         &:focus {
@@ -108,4 +108,13 @@ export const Container = styled.div`
   align-items: center;
   padding: .4rem;
   gap: 2rem;
+`
+export const ErrorSpan = styled.span`
+    background-color: #ffaeae;
+    color: #9e0000;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
 `
