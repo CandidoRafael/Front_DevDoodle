@@ -46,11 +46,12 @@ export const CardBody = styled.article`
 
 export const CardHeader = styled.article<CardHeaderProps>`
   width: 100%;
-  color: var(--color-blue-primary);
   
   h2 {
-    line-height: 1.3;
+    line-height: 1.2;
     margin-bottom: 1rem;
+    
+    color: #149;
     cursor: pointer;
     font-size: ${({ size }: any) => (size ? "3rem" : "1.2rem")};    
   }

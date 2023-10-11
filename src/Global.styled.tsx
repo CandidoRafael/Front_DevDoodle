@@ -19,6 +19,5 @@ body {
   background-color: #e6e6e6;
   height: 100vh;
   max-width: 100vw;
-
 }
 `

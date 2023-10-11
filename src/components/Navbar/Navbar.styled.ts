@@ -36,7 +36,7 @@ export const InputSpace = styled.div`
 
     button {
       border: none; 
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       background-color: var(--color-baby-blue);
       padding: 0.63rem;
       cursor: pointer;
@@ -49,7 +49,7 @@ export const InputSpace = styled.div`
       input {
         border: 1px solid red;
         outline: none;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 0.7rem;
         background-color: #f5f5f5;
         border: 1px solid transparent;

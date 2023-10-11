@@ -10,6 +10,7 @@ import Navbar from './components/Navbar/Navbar.tsx'
 import Home from './pages/Home/Home.tsx'
 import Search from './pages/Search/Search.tsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.tsx'
+import Auth from './pages/Auth/Auth.tsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         element: <Search />
       }
     ]
+  },
+  {
+    path: '/auth',
+    element: <Auth />
   }
 ])
 

@@ -1,20 +1,13 @@
+import logo from '../../assets/logo.png'
 import { Button, Container, ErrorSpan, Hamburger, ImageLogo, InputSpace, Nav } from './Navbar.styled'
 import { GrMenu } from 'react-icons/gr'
-import logo from '../../assets/logo.png'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { BiSearch } from 'react-icons/bi'
-import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { schemaSearch } from '../../schemas/schemaSearch'
 
 const Navbar = () => {
-
-  const schema = z.object({
-    title: z
-    .string()
-    .min(1, "O campo de pesquisa não pode ser vazio")
-    .refine(value => !/^\s*$/.test(value), "O campo não pode ter espaços")
-  })
 
   const { 
     register, 
@@ -26,7 +19,7 @@ const Navbar = () => {
     defaultValues: {
       title: ''
     },
-    resolver: zodResolver(schema)
+    resolver: zodResolver(schemaSearch)
   })
   
   const navigate = useNavigate()
@@ -42,6 +35,7 @@ const Navbar = () => {
     navigate(`posts/search/${data.title}`)
     reset()
   }
+
 
   return (
     <>
@@ -60,7 +54,7 @@ const Navbar = () => {
           </form>
 
         <Container>
-        <Button>Entrar</Button>
+        <Button onClick={() => navigate("/auth")}>Entrar</Button>
           <Hamburger>
               <GrMenu />
           </Hamburger>
