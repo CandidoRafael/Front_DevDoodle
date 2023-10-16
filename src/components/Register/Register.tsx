@@ -1,13 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-
 import { IconCreate, SpanError } from '../../pages/Auth/Auth.styled'
 import { BsEyeSlash, BsEyeSlashFill } from 'react-icons/bs'
 import { schemaSignUp } from '../../schemas/schemaSignUp'
 import { SignUp } from '../../services/userServices'
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
+import { UserDataRegister } from '../../types/User'
 
 const Register = () => {
 
@@ -30,7 +30,7 @@ const Register = () => {
       }
     })
   
-    const handleFormSignUp = async (data: any) => {
+    const handleFormSignUp = async (data: UserDataRegister) => {
       
       try {
         const response = await SignUp(data)
