@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     padding: 1rem;

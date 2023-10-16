@@ -6,8 +6,14 @@ import { useForm } from 'react-hook-form'
 import { BiSearch } from 'react-icons/bi'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { schemaSearch } from '../../schemas/schemaSearch'
+import { userLogged } from '../../services/userServices'
+import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
+import { User } from '../../types/User'
 
 const Navbar = () => {
+
+  const [user, setUser] = useState<User | undefined>()
 
   const { 
     register, 
@@ -26,16 +32,22 @@ const Navbar = () => {
 
   
   const handleSearch = (data:any) => {
-    console.log(data)
-
-    if(!data.title) {
-     console.log('caiu')
-    }
-
     navigate(`posts/search/${data.title}`)
     reset()
   }
 
+  async function FindUserLogged() {
+    try {
+      const response = await userLogged()
+      setUser(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if(Cookies.get('token')) FindUserLogged()
+  }, [])
 
   return (
     <>
@@ -54,7 +66,15 @@ const Navbar = () => {
           </form>
 
         <Container>
-        <Button onClick={() => navigate("/auth")}>Entrar</Button>
+
+        {
+            user ? (
+              <p>Olá, {user.name}</p>
+            ) : (
+              <Button onClick={() => navigate("/auth")}>Entrar</Button>
+            )
+          }
+      
           <Hamburger>
               <GrMenu />
           </Hamburger>

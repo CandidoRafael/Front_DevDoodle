@@ -5,13 +5,18 @@ import { useForm } from 'react-hook-form'
 import { IconCreate, SpanError } from '../../pages/Auth/Auth.styled'
 import { BsEyeSlash, BsEyeSlashFill } from 'react-icons/bs'
 import { schemaSignUp } from '../../schemas/schemaSignUp'
+import { SignUp } from '../../services/userServices'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
 
     const [showPasswordCreate, setShowPasswordCreate] = useState(false)
 
     const tooglePasswordCreate = () => setShowPasswordCreate(!showPasswordCreate)
-  
+
+    const navigate = useNavigate()
+
     const {
       register: registerSignUp,
       handleSubmit: handleSubmitSignUp,
@@ -25,10 +30,18 @@ const Register = () => {
       }
     })
   
-    const handleFormSignUp = (data: any) => {
-      console.log(data)
-      console.log(errorsSignUp.email?.message)
-      resetCreate()
+    const handleFormSignUp = async (data: any) => {
+      
+      try {
+        const response = await SignUp(data)
+        Cookies.set("token", response.data.token, { expires: 1 })
+        console.log(response)
+        navigate('/')
+        resetCreate()
+      } catch (error) {
+        console.log(error)
+      }
+      
     }
 
 

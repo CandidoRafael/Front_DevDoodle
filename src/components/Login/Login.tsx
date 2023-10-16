@@ -1,33 +1,16 @@
 import { Icon, SpanError } from "../../pages/Auth/Auth.styled"
-
-import { useForm } from 'react-hook-form'
-import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { BsEyeSlash } from 'react-icons/bs'
 import { BsEyeSlashFill } from 'react-icons/bs'
-import { schemaSignIn } from "../../schemas/schemaSignIn"
+import { useLogin } from "../../hooks/useLogin"
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
-
   const tooglePassword = () => setShowPassword(!showPassword)
-    
-  const { 
-    register: registerSignIn, 
-    handleSubmit: handleSubmitSignIn, 
-    reset: resetSignIn, 
-    formState: { errors: errorsSignIn } 
-    } = useForm({
-    mode: 'onSubmit',
-    defaultValues: { email: '', password: ''},
-    resolver: zodResolver(schemaSignIn)
-  })
-
-  const handleFormSignIn = (data: any) => {
-     console.log(data)
-     resetSignIn()
-  }
-
+ 
+  const { registerSignIn, handleFormSignIn, handleSubmitSignIn, 
+    errorsSignIn } = useLogin()
+  
   return (
     <form onSubmit={handleSubmitSignIn(handleFormSignIn)}>
     <h1>Login</h1>
@@ -47,7 +30,7 @@ export const Login = () => {
     placeholder="Senha"
     />
 
-      <Icon onClick={() => tooglePassword()}>{showPassword ? <BsEyeSlashFill /> : <BsEyeSlash />}</Icon>
+    <Icon onClick={() => tooglePassword()}>{showPassword ? <BsEyeSlashFill /> : <BsEyeSlash />}</Icon>
      
     {errorsSignIn.password?.message && (
       <SpanError>{errorsSignIn.password.message}</SpanError>
