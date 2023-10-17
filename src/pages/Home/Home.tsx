@@ -1,23 +1,16 @@
-import { useState } from 'react'
 import { HomePosts, HomeTopPost } from './Home.styled'
-
-import Sidebar from "../../components/Sidebar/Sidebar"
-import Card from "../../components/Card/Card"
 import { Post } from '../../types/Post'
 import { usePost } from '../../hooks/usePost'
 import { useTopPost } from '../../hooks/useTopPost'
+import Card from "../../components/Card/Card"
 
 const Home = () => {
-  const [toggleMenu, setToggleMenu] = useState(false)
-
+  
   const { PostsData, isLoadingPosts } = usePost()
   const { topPostData, isLoadingTopPost } = useTopPost()
 
   return (
     <>
-     
-      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-
       <HomeTopPost>
         {isLoadingTopPost ? ( null
         ) : (  <Card

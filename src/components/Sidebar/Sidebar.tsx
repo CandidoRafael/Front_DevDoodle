@@ -1,3 +1,4 @@
+import './Sidebar.css'
 import { ContainerClose, UlMenu } from "./Sidebar.styled"
 import { AiOutlineHome } from 'react-icons/ai'
 import { BiLogInCircle } from 'react-icons/bi'
@@ -5,26 +6,29 @@ import { BsPostcard } from 'react-icons/bs'
 import { MdBalance } from 'react-icons/md'
 import { FaPowerOff } from 'react-icons/fa'
 import { GrClose } from 'react-icons/gr'
-import './Sidebar.css'
+import { useContext } from "react"
+import { ToogleContext } from "../../Context/ToogleContext"
+import { Link } from 'react-router-dom'
 
-type SidebarProps = {
-  toggleMenu: boolean
-  setToggleMenu: React.Dispatch<React.SetStateAction<boolean>>
-}
+const Sidebar = () => {
 
-const Sidebar = ({ toggleMenu , setToggleMenu }: SidebarProps) => {
+  const { toogleSidebar, handleToogle } = useContext(ToogleContext)
+
   return (
     
-    <aside className={`sidebar ${toggleMenu ? '' : 'close'}`}>
+    <aside className={`sidebar ${toogleSidebar ? '' : 'close'}`}>
     <ContainerClose>
-      <GrClose onClick={() => setToggleMenu(false)} />
+      <GrClose onClick={() => handleToogle()} />
     </ContainerClose>
 
       <UlMenu>
-        <li>
-          <AiOutlineHome />
-          Home
-        </li>
+  
+        <Link to='/'>
+          <li>
+              <AiOutlineHome />
+              Home
+          </li>
+        </Link>
         <li>
           <BiLogInCircle />
           Entrar

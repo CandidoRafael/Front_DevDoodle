@@ -1,5 +1,6 @@
 import axios from "axios";
-import { PostResults } from "../types/Post";
+import { Post, PostResults } from "../types/Post";
+import Cookies from "js-cookie";
 
 const baseURL = 'https://apidevdoodle.vercel.app' 
 
@@ -21,3 +22,13 @@ export const searchPosts = async (title: string | undefined) => {
       
     return response.data
   }
+
+export const getAllPostsByUser = async () => {
+    const response = await axios.get(`${baseURL}/posts/byUserId`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`
+        }
+    })
+
+    return response
+}

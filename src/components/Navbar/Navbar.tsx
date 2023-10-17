@@ -5,13 +5,19 @@ import { Link, Outlet } from 'react-router-dom'
 import { BiSearch } from 'react-icons/bi'
 import useSearchPosts from '../../hooks/useSearchPost'
 import useUserLogged from '../../hooks/useUserLogged'
+import { useContext } from 'react'
+import { ToogleContext } from '../../Context/ToogleContext'
+import Sidebar from '../Sidebar/Sidebar'
 
 const Navbar = () => {
 
   const { register, handleSubmit, handleSearch, errors, navigate } = useSearchPosts()
   const user = useUserLogged()
+  const { handleToogle } = useContext(ToogleContext)
+
   return (
     <>
+      <Sidebar />
       <Nav>
         <Link to='/'>
           <ImageLogo src={logo} alt="logo DevDoodle" />
@@ -27,7 +33,7 @@ const Navbar = () => {
         <Container>
 
         { user ? (
-                <LinkProfile>
+                <LinkProfile >
                    <Link to='/profile'>
                     {user.name ? `Olá, ${user.name}` : null}
                    </Link>
@@ -37,7 +43,7 @@ const Navbar = () => {
               <Button onClick={() => navigate("/auth")}>Entrar</Button>
             )}
       
-          <Hamburger>
+          <Hamburger onClick={() => handleToogle()}>
               <GrMenu />
           </Hamburger>
         </Container>

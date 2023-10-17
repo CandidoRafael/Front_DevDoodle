@@ -6,8 +6,10 @@ import { schemaSignIn } from "../schemas/schemaSignIn"
 import { UserDataLogin } from "../types/User"
 import { useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
+import { useState } from "react"
 
 export const useLogin = () => {
+    const [errorApi, setErrorApi] = useState('')
     const navigate = useNavigate()
     const { 
         register: registerSignIn, 
@@ -32,7 +34,7 @@ export const useLogin = () => {
           navigate('/')
           resetSignIn()
          } catch (error) {
-          console.log(error)
+            setErrorApi(error.response.data)
          }
       }
 
@@ -40,6 +42,7 @@ export const useLogin = () => {
         registerSignIn,
         handleSubmitSignIn,
         handleFormSignIn,
-        errorsSignIn
+        errorsSignIn, 
+        errorApi
       }
 }

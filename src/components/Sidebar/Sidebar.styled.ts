@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const UlMenu = styled.ul`
     list-style-type: none;
 
+    a {
+        text-decoration: none;
+        color: #222;
+    }
+
     li {
         height: 50px;
         display: flex;

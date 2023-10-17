@@ -13,6 +13,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage.tsx'
 import Auth from './pages/Auth/Auth.tsx'
 import Profile from './pages/Profile/Profile.tsx'
 import { UserProvider } from './Context/UserContext.tsx'
+import { ToogleProvider } from './Context/ToogleContext.tsx'
 
 const router = createBrowserRouter([
   {
@@ -44,9 +45,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
    <QueryClientProvider client={queryClient}>
      <GlobalStyled />
-      <UserProvider>
+     <ToogleProvider>
+     <UserProvider>
        <RouterProvider  router={router}/>
      </UserProvider>
+     </ToogleProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 )

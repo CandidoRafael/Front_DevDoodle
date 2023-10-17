@@ -9,7 +9,7 @@ export const Login = () => {
   const tooglePassword = () => setShowPassword(!showPassword)
  
   const { registerSignIn, handleFormSignIn, handleSubmitSignIn, 
-    errorsSignIn } = useLogin()
+    errorsSignIn, errorApi } = useLogin()
   
   return (
     <form onSubmit={handleSubmitSignIn(handleFormSignIn)}>
@@ -35,6 +35,8 @@ export const Login = () => {
     {errorsSignIn.password?.message && (
       <SpanError>{errorsSignIn.password.message}</SpanError>
     )}
+
+    {errorApi ? <SpanError>{errorApi}</SpanError> : null}
 
     <button>Entrar</button>
 </form>

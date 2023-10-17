@@ -20,6 +20,7 @@ export const ProfileHeader = styled.header`
     rgba(0, 0, 0, 0.5) 0px 1px 1px 0px;
     background-color: #fff;
     z-index: 0;
+    margin-bottom: 1rem;
 `
 
 export const ProfileIconEdit = styled.i`
@@ -81,5 +82,27 @@ export const ProfileIconAdd = styled.i`
     &:hover {
         color: var(--color-blue-primary);
     }
+`
 
+export const ProfilePosts = styled.main`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+    
+    @media (max-width: 560px) {
+      width: 90%;
+    }
+
+    span{
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
 `
