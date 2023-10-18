@@ -17,6 +17,7 @@ export const ContainerToogle = styled.main`
     width: 868px;
     max-width: 100%;
     min-height: 480px;
+    display: block;
 
     p{
       font-size: 14px;
@@ -32,8 +33,8 @@ export const ContainerToogle = styled.main`
     button{
     background-color: var(--color-baby-blue);
     color: #fff;
-    font-size: 12px;
-    padding: 10px 45px;
+    font-size: .9rem;
+    padding: 9px 45px;
     border: 1px solid transparent;
     border-radius: 8px;
     font-weight: 600;
@@ -80,9 +81,7 @@ export const FormContainer = styled.div`
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
-
-    
-
+   
     h1{
         color: var(--color-baby-blue);
         margin-bottom: 1rem;
@@ -91,15 +90,6 @@ export const FormContainer = styled.div`
 
 export const SpanError = styled.span`
     color: red;
-`
-
-export const Icon = styled.i`
-    position: absolute;
-    right: 13%;
-    font-size: 19px;
-    top: 56%;
-    cursor: pointer;
-    color: var(--color-baby-blue);
 `
 
 export const IconCreate= styled.i`

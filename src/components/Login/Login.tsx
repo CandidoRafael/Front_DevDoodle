@@ -1,17 +1,24 @@
-import { Icon, SpanError } from "../../pages/Auth/Auth.styled"
-import { useState } from "react"
-import { BsEyeSlash } from 'react-icons/bs'
-import { BsEyeSlashFill } from 'react-icons/bs'
+import { SpanError } from "../../pages/Auth/Auth.styled"
 import { useLogin } from "../../hooks/useLogin"
+import { ToogleContext } from "../../Context/ToogleContext"
+import { useContext } from 'react'
+import { BiLoader } from 'react-icons/bi'
 
 export const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
-  const tooglePassword = () => setShowPassword(!showPassword)
- 
-  const { registerSignIn, handleFormSignIn, handleSubmitSignIn, 
-    errorsSignIn, errorApi } = useLogin()
+   
+  const { 
+    registerSignIn, 
+    handleFormSignIn, 
+    handleSubmitSignIn, 
+    errorsSignIn, 
+    errorApi,
+    isLoading
+   } = useLogin()
   
+  const { toogleBanner, setToogleBanner } = useContext(ToogleContext)
+
   return (
+    <>
     <form onSubmit={handleSubmitSignIn(handleFormSignIn)}>
     <h1>Login</h1>
     <span>Digite seu email e senha</span>
@@ -25,20 +32,22 @@ export const Login = () => {
     )}
 
     <input 
-    type={showPassword ? "text" : "password"} 
+    type="password" 
     {...registerSignIn('password')}  
     placeholder="Senha"
     />
-
-    <Icon onClick={() => tooglePassword()}>{showPassword ? <BsEyeSlashFill /> : <BsEyeSlash />}</Icon>
-     
+ 
     {errorsSignIn.password?.message && (
       <SpanError>{errorsSignIn.password.message}</SpanError>
     )}
 
     {errorApi ? <SpanError>{errorApi}</SpanError> : null}
-
-    <button>Entrar</button>
+    <button>{isLoading ? <i className="loading-icon"><BiLoader /></i> : 'Entrar'}</button>
+      <span 
+      className="spanMobile"
+      onClick={() => setToogleBanner(!toogleBanner)}
+      >Não possui conta ?</span>
 </form>
+</>
   )
 }

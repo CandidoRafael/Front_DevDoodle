@@ -20,4 +20,15 @@ body {
   height: 100vh;
   max-width: 100vw;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--color-blue-primary);
+    border: 5px solid var(--color-blue-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(84, 148, 221);
+  border-radius: 50px;
+}
 `

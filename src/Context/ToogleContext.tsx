@@ -6,16 +6,16 @@ type ToggleProps = {
     children: React.ReactNode
 }
 
-
 export const ToogleProvider = ({ children }: ToggleProps) => {
     const [toogleSidebar, setToogleSidebar] = useState(false)
+    const [toogleBanner, setToogleBanner] = useState(false)
 
-    const handleToogle = () => {
+    const handleToogleSidebar = () => {
         setToogleSidebar(!toogleSidebar)
     }
 
     return (
-        <ToogleContext.Provider value={{ toogleSidebar, handleToogle }}>
+        <ToogleContext.Provider value={{ toogleSidebar, handleToogleSidebar, toogleBanner, setToogleBanner }}>
             { children }
         </ToogleContext.Provider>
     )

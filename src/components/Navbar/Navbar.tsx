@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const { register, handleSubmit, handleSearch, errors, navigate } = useSearchPosts()
   const user = useUserLogged()
-  const { handleToogle } = useContext(ToogleContext)
+  const { handleToogleSidebar } = useContext(ToogleContext)
 
   return (
     <>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <Button onClick={() => navigate("/auth")}>Entrar</Button>
             )}
       
-          <Hamburger onClick={() => handleToogle()}>
+          <Hamburger onClick={() => handleToogleSidebar()}>
               <GrMenu />
           </Hamburger>
         </Container>

@@ -8,7 +8,7 @@ const Home = () => {
   
   const { PostsData, isLoadingPosts } = usePost()
   const { topPostData, isLoadingTopPost } = useTopPost()
-
+  console.log(PostsData)
   return (
     <>
       <HomeTopPost>
@@ -18,6 +18,7 @@ const Home = () => {
           title={topPostData.title} 
           image={topPostData.banner}
           likes={topPostData.likes}
+          username={topPostData.username}
           comments={topPostData.comments}       
         />)}
       </HomeTopPost>
@@ -33,6 +34,7 @@ const Home = () => {
               text={post.text}
               image={post.banner}
               likes={post.likes}
+              username={post.username}
               comments={post.comments}        
             />
         )))}

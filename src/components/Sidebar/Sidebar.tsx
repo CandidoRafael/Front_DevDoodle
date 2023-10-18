@@ -7,43 +7,58 @@ import { MdBalance } from 'react-icons/md'
 import { FaPowerOff } from 'react-icons/fa'
 import { GrClose } from 'react-icons/gr'
 import { useContext } from "react"
+import { AiOutlineUser } from 'react-icons/ai'
 import { ToogleContext } from "../../Context/ToogleContext"
 import { Link } from 'react-router-dom'
+import { useLogOut } from '../../hooks/useLogOut'
 
 const Sidebar = () => {
 
-  const { toogleSidebar, handleToogle } = useContext(ToogleContext)
+  const { toogleSidebar, handleToogleSidebar } = useContext(ToogleContext)
+  const { SignOut } = useLogOut()
 
   return (
     
     <aside className={`sidebar ${toogleSidebar ? '' : 'close'}`}>
     <ContainerClose>
-      <GrClose onClick={() => handleToogle()} />
+      <GrClose onClick={() => handleToogleSidebar()} />
     </ContainerClose>
 
       <UlMenu>
-  
+
         <Link to='/'>
           <li>
               <AiOutlineHome />
               Home
           </li>
         </Link>
-        <li>
-          <BiLogInCircle />
-          Entrar
-        </li>
-        <li>
-          <BsPostcard />
-          Posts
-        </li>
-        <li>
-          <MdBalance />
-          Política de Conteúdo
+        <Link to='/auth'>
+          <li>
+            <BiLogInCircle />
+            Entrar
           </li>
-        <li>
-          <FaPowerOff />
-          Sair
+        </Link>
+        <Link to='/posts'>
+          <li>
+            <BsPostcard />
+            Posts
+          </li>      
+        </Link>
+        <Link to='/profile'>
+          <li>
+            <AiOutlineUser />
+            Perfil
+          </li>      
+        </Link>
+        <Link to='/policy'>
+         <li>
+            <MdBalance />
+            Política de Conteúdo
+          </li>
+        </Link>
+          <li onClick={() => SignOut()}>
+            <FaPowerOff />
+            Sair
           </li>
       </UlMenu>
     </aside>

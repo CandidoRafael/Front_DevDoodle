@@ -1,6 +1,4 @@
 import { AiOutlineLike } from 'react-icons/ai'
-import { AiTwotoneLike } from 'react-icons/ai'
-import { FaRegCommentDots } from 'react-icons/fa'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader } from './Card.styled'
 
@@ -10,10 +8,11 @@ type CardProps = {
   image: string
   likes: string
   comments: string,
+  username: string
   size?: string
 }
 
-const Card = ({ title, image, likes, comments, size } : CardProps) => {
+const Card = ({ title, image, likes, comments, size, username } : CardProps) => {
 
   return (
     <CardContainer>
@@ -23,6 +22,7 @@ const Card = ({ title, image, likes, comments, size } : CardProps) => {
         <div>
           <CardHeader size={size}>
             <h2>{title}</h2>
+            <i>Criado por, {username}</i>
           </CardHeader>
 
           <CardFooter>

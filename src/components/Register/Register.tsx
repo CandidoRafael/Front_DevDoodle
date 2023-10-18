@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import { IconCreate, SpanError } from '../../pages/Auth/Auth.styled'
-import { BsEyeSlash, BsEyeSlashFill } from 'react-icons/bs'
+import { useContext } from 'react'
+import { SpanError } from '../../pages/Auth/Auth.styled'
 import { useRegister } from '../../hooks/useRegister'
+import { ToogleContext } from '../../Context/ToogleContext'
 
 const Register = () => {
 
-  const [showPasswordCreate, setShowPasswordCreate] = useState(false)
-
-  const tooglePasswordCreate = () => setShowPasswordCreate(!showPasswordCreate)
-
   const { registerSignUp, handleFormSignUp, handleSubmitSignUp, errorsSignUp } = useRegister()
+
+  const { toogleBanner, setToogleBanner } = useContext(ToogleContext)
 
   return (
     <form onSubmit={handleSubmitSignUp(handleFormSignUp)}>
@@ -36,23 +34,20 @@ const Register = () => {
         )}
 
         <input 
-         type={showPasswordCreate ? "text" : "password"} 
+         type="password" 
          {...registerSignUp('password')}  
          placeholder="Senha"
         />
-
-        <IconCreate 
-         onClick={() => tooglePasswordCreate()
-         }>
-          {showPasswordCreate ? 
-          <BsEyeSlashFill /> : <BsEyeSlash />}
-        </IconCreate>
     
         {errorsSignUp.password?.message && (
         <SpanError>{errorsSignUp.password.message}</SpanError>
         )}
 
         <button>Cadastrar-se</button>
+        <span 
+        className='spanMobile'
+        onClick={() => setToogleBanner(!toogleBanner)}
+        >Já possui cadastro ?</span>
     </form>
   )
 }

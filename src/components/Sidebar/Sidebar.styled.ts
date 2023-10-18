@@ -3,9 +3,13 @@ import styled from "styled-components";
 export const UlMenu = styled.ul`
     list-style-type: none;
 
-    a {
+    a{
         text-decoration: none;
         color: #222;
+
+        &:last-child {
+            padding: 3rem;
+        }
     }
 
     li {
@@ -26,9 +30,7 @@ export const UlMenu = styled.ul`
             color: #f8f8f8;
         }
 
-        &:last-child {
-            margin-top: 50px;
-        }
+        
     }
 `
 

@@ -1,13 +1,15 @@
 import './Auth.css'
-import { useState } from "react"
-import logo from '../../assets/logo.png'
+import { useContext } from 'react'
 import { AuthContainer, ContainerToogle, FormContainer } from './Auth.styled'
-import Register from '../../components/Register/Register'
 import { Login } from '../../components/Login/Login'
+import { ToogleContext } from '../../Context/ToogleContext'
+
+import logo from '../../assets/logo.png'
+import Register from '../../components/Register/Register'
 
 const Auth = () => {
 
-  const [toogleBanner, setToogleBanner] = useState(false)
+  const { toogleBanner, setToogleBanner } = useContext(ToogleContext)
   
   return (
   <AuthContainer>

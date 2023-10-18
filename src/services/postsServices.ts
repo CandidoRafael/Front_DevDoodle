@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Post, PostResults } from "../types/Post";
+import { PostResults } from "../types/Post";
 import Cookies from "js-cookie";
 
 const baseURL = 'https://apidevdoodle.vercel.app' 
