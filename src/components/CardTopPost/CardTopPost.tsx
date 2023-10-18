@@ -1,7 +1,7 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
-import { CardAuthor, CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
-import { TextLimit } from '../TextLimit/TextLimit'
+import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
+import { CardAuthor } from '../Card/Card.styled'
 
 type CardProps = {
   title: string
@@ -9,30 +9,27 @@ type CardProps = {
   image: string
   likes: string
   comments: string
-  avatar: string
   username: string
+  avatar: string
   size?: string
 }
 
-const Card = ({ title, image, likes, comments, size, username, text, avatar } : CardProps) => {
+const CardTopPost = ({ title, image, likes, comments, size, username, avatar } : CardProps) => {
 
   return (
     <CardContainer>
       <CardBody>
-        <div>
-          <img src={image} alt="Imagem" />
-        </div>
+        <img src={image} alt="Imagem" />
+        
         <div>
           <CardHeader size={size}>
             <h2>{title}</h2>
-            <TextLimit text={text} limit={100}/>
-          </CardHeader>
-
             <CardAuthor>
-              <img src={avatar} alt="Imagem autor" />
+              <img src={avatar} alt="Imagem do Autor" />
               <p>{username}</p>
             </CardAuthor>
-            
+          </CardHeader>
+
           <CardFooter>
             <section>
               <AiOutlineLike />
@@ -50,4 +47,4 @@ const Card = ({ title, image, likes, comments, size, username, text, avatar } : 
   )
 }
 
-export default Card
+export default CardTopPost
