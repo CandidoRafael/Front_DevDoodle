@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HomePosts = styled.section`
    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.4rem;
     padding: 1em;
     width: 1024px;
     margin: 1rem auto;

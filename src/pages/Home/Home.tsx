@@ -4,6 +4,7 @@ import { usePost } from '../../hooks/usePost'
 import { useTopPost } from '../../hooks/useTopPost'
 import Card from "../../components/Card/Card"
 import CardTopPost from '../../components/CardTopPost/CardTopPost'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   
@@ -43,6 +44,7 @@ const Home = () => {
             />
         )))}
       </HomePosts>
+      <Footer />
     </>
   )
 }

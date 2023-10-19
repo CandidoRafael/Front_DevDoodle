@@ -1,7 +1,7 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
-import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
-import { CardAuthor } from '../Card/Card.styled'
+import { CardAuthor, CardBody, CardContainer, CardFooter, CardHeader, ImageAuthor } from './CardTopPost.styled'
+
 
 type CardProps = {
   title: string
@@ -20,14 +20,14 @@ const CardTopPost = ({ title, image, likes, comments, size, username, avatar } :
     <CardContainer>
       <CardBody>
         <img src={image} alt="Imagem" />
-        
         <div>
           <CardHeader size={size}>
             <h2>{title}</h2>
-            <CardAuthor>
-              <img src={avatar} alt="Imagem do Autor" />
+
+            <section>
+              <img src={avatar} alt="Imagem Autor" />
               <p>{username}</p>
-            </CardAuthor>
+            </section>
           </CardHeader>
 
           <CardFooter>

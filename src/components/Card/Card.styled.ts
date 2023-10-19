@@ -9,6 +9,7 @@ export const CardContainer = styled.section`
   flex-direction: column;
   gap: 1rem;
   max-width: 100%;
+  
 `;
 
 export const CardBody = styled.article`
@@ -34,7 +35,7 @@ export const CardBody = styled.article`
     transition: .2s all ease-in-out;
 
     &:hover {
-      transform: scale(1.07)
+      transform: scale(1.05)
     }
   }
 `;
@@ -77,5 +78,10 @@ export const CardFooter = styled.article`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+
+    
+    svg {
+      cursor: pointer;
+    }
   }
 `;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { searchPosts } from "../../services/postsServices"
-import Card from "../../components/Card/Card"
 import { SearchContainer, SearchPosts, TextResults } from "./Search.styled"
+import CardTopPost from "../../components/CardTopPost/CardTopPost"
 
 const Search = () => {
 
@@ -35,11 +35,14 @@ const Search = () => {
             : `Não encontramos resultados para: `
           }
           </span>
-          <b>{title}</b>
+          <strong>{title}</strong>
         </TextResults>
         <SearchPosts>
           {posts.map((post: any) => (
-            <Card
+            <CardTopPost
+              
+              username={post.username}
+              avatar={post.avatar}
               key={post.id}
               title={post.title}
               text={post.text}
