@@ -5,15 +5,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { queryClient } from './services/queryClient.ts'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { GlobalStyled } from './Global.styled.tsx'
-
-import Navbar from './components/Navbar/Navbar.tsx'
-import Home from './pages/Home/Home.tsx'
-import Search from './pages/Search/Search.tsx'
-import ErrorPage from './pages/ErrorPage/ErrorPage.tsx'
-import Auth from './pages/Auth/Auth.tsx'
-import Profile from './pages/Profile/Profile.tsx'
 import { UserProvider } from './Context/UserContext.tsx'
 import { ToogleProvider } from './Context/ToogleContext.tsx'
+import { PostProvider } from './Context/PostContext.tsx'
+
+import ErrorPage from './pages/ErrorPage/ErrorPage.tsx'
+import Search from './pages/Search/Search.tsx'
+import Home from './pages/Home/Home.tsx'
+import Auth from './pages/Auth/Auth.tsx'
+import Profile from './pages/Profile/Profile.tsx'
+import Policy from './pages/Policy/Policy.tsx'
+import Navbar from './components/Navbar/Navbar.tsx'
 
 const router = createBrowserRouter([
   {
@@ -32,9 +34,14 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />
+      },
+      {
+        path: '/policy',
+        element: <Policy />
       }
     ]
   },
+  
   {
     path: '/auth',
     element: <Auth />
@@ -43,13 +50,15 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-   <QueryClientProvider client={queryClient}>
-     <GlobalStyled />
+ <QueryClientProvider client={queryClient}>
+  <GlobalStyled />
+    <PostProvider>
      <ToogleProvider>
-     <UserProvider>
-       <RouterProvider  router={router}/>
-     </UserProvider>
-     </ToogleProvider>
-    </QueryClientProvider>
+       <UserProvider>
+         <RouterProvider  router={router}/>
+       </UserProvider>
+      </ToogleProvider>
+    </PostProvider>
+  </QueryClientProvider>
   </React.StrictMode>,
 )

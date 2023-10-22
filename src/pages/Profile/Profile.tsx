@@ -4,30 +4,36 @@ import { ProfileActions, ProfileAvatar, ProfileContainer, ProfileHeader, Profile
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
-import { getAllPostsByUser } from "../../services/postsServices"
+import PostServices from "../../services/postsServices"
 import Card from "../../components/Card/Card"
 import { Post } from "../../types/Post"
+import { ToogleContext } from "../../Context/ToogleContext"
+import Modal from "../../components/Modal/Modal"
 
 const Profile = () => {
 
   const { user } = useContext(UserContext)
+  const { getAllPostsByUser } = PostServices()
   const [userPosts, setUserPosts] = useState([])
   
   const findAllPostsByUser = async () => {
     const response = await getAllPostsByUser()
     setUserPosts(response.data.postsByUser)
-    console.log(userPosts)
   }
 
   useEffect(() => {
     findAllPostsByUser()
   }, [])
 
+  const { setToogleModal } = useContext(ToogleContext)
+
   return (
+    <>
+     <Modal />
     <ProfileContainer>
 
      <ProfileHeader>
-      <ProfileIconEdit>
+      <ProfileIconEdit onClick={() => setToogleModal(true)}>
         <FiEdit />
       </ProfileIconEdit>
 
@@ -49,11 +55,13 @@ const Profile = () => {
       <ProfilePosts>
         {userPosts.length ? (
           userPosts?.map((post: Post) => (
-            <Card 
+            <Card
               key={post.id}
               title={post.title}
               text={post.text}
-               image={post.banner}
+              avatar={post.avatar}
+              username={post.username}
+              image={post.banner}
               likes={post.likes}
               comments={post.comments}
             />
@@ -62,6 +70,7 @@ const Profile = () => {
       </ProfilePosts>
 
     </ProfileContainer>
+    </>
   )
 }
 

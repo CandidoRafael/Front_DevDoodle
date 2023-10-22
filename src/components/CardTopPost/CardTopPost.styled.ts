@@ -5,7 +5,11 @@ type CardHeaderProps = {
 }
 
 export const CardContainer = styled.section`
-    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+    ;
   `;
 
 export const CardBody = styled.article`
@@ -40,11 +44,9 @@ export const CardBody = styled.article`
             width: 100%;
         }
   }
-
 `;
 
 export const CardHeader = styled.article<CardHeaderProps>`
-  width: 100%;
   
   h2 {
     line-height: 1.2;
@@ -55,10 +57,10 @@ export const CardHeader = styled.article<CardHeaderProps>`
   }
 
   section {
-
     display: flex;
     align-items: center;
     gap: .7rem;
+    margin-bottom: .4rem;
 
     img {
       width: 25px;

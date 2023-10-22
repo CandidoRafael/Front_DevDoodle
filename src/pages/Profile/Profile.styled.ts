@@ -21,6 +21,10 @@ export const ProfileHeader = styled.header`
     background-color: #fff;
     z-index: 0;
     margin-bottom: 1rem;
+
+    @media (max-width: 668px) {
+        width: 90%;
+    }
 `
 
 export const ProfileIconEdit = styled.i`
@@ -58,7 +62,7 @@ export const ProfileImage = styled.img`
 `
 
 export const ProfileUser = styled.div`
-    padding: 2rem;
+    padding: 2rem 1rem;
 `
 
 export const ProfileAvatar = styled.img`
@@ -67,6 +71,10 @@ export const ProfileAvatar = styled.img`
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
+
+    @media (max-width: 668px) {
+        width: 6rem;
+    }
 `
 
 export const ProfileActions = styled.div`

@@ -1,12 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import { getAllPosts } from '../services/postsServices'
+import PostServices from '../services/postsServices'
+import { PostContext } from '../Context/PostContext'
+import { useContext } from 'react'
 
 export const usePost = () => {
-    
+
+  const { getAllPosts } = PostServices()
+
+  const { page } = useContext(PostContext)
+
     const { data: PostsData , isLoading: isLoadingPosts } = useQuery({
-        queryKey: ['posts'],
-        queryFn: getAllPosts,
-        
+        queryKey: ['posts', page],
+        cacheTime: 15,
+        queryFn: () => getAllPosts(page),
       })
 
       return { PostsData, isLoadingPosts }

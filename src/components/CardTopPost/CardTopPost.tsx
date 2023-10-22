@@ -1,7 +1,6 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
-import { CardAuthor, CardBody, CardContainer, CardFooter, CardHeader, ImageAuthor } from './CardTopPost.styled'
-
+import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
 
 type CardProps = {
   title: string

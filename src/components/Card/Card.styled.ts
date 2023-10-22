@@ -8,8 +8,7 @@ export const CardContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 100%;
-  
+  max-width: 100%;  
 `;
 
 export const CardBody = styled.article`
@@ -45,13 +44,13 @@ export const CardHeader = styled.article<CardHeaderProps>`
   flex-direction: column;
   margin-bottom: 1rem;
   cursor: pointer;
-  width: 100%;
+  
   font-size: ${({ size }) => (size ? "1.5rem" : ".9rem")};
 
   h2 {
     margin-bottom: .4rem;
     font-size: ${({ size }) => (size ? "3rem" : "1.1rem")};
-    width: 100%;
+    font-weight: 800;
   }
 `;
 
@@ -63,9 +62,9 @@ export const CardAuthor = styled.section`
 
   img {
     width: 25px;
+    height: auto;
     object-fit: cover;
     object-position: center;
-    height: auto;
   }
 `
 

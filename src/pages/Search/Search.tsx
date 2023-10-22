@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { searchPosts } from "../../services/postsServices"
+import PostServices from "../../services/postsServices"
 import { SearchContainer, SearchPosts, TextResults } from "./Search.styled"
 import CardTopPost from "../../components/CardTopPost/CardTopPost"
 
 const Search = () => {
 
   const { title } = useParams()
+  const { searchPosts } = PostServices()
 
   const [ posts, setPosts ] = useState([])
 
