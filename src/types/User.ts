@@ -15,3 +15,10 @@ export interface User {
     avatar: string
     background: string
 }
+
+export interface UserProfile {
+    name: string
+    username: string
+    avatar: string
+    background: string
+}

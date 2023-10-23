@@ -41,7 +41,7 @@ const Sidebar = () => {
         <Link to='/posts'>
           <li>
             <BsPostcard />
-            Posts
+            Criar
           </li>      
         </Link>
         <Link to='/profile'>

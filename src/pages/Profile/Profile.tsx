@@ -27,6 +27,10 @@ const Profile = () => {
 
   const { setToogleModal } = useContext(ToogleContext)
 
+  if(!user) {
+    return <p>Loading...</p>
+  }
+
   return (
     <>
      <Modal />

@@ -25,23 +25,77 @@ export const ModalContainer = styled.div`
     transition: .5s all;
 
     h1 {
-        color: var(--color-blue-primary);
+        color: var(--color-baby-blue);
         padding-bottom: 1rem;
     }
 
     figure {
         img{
             width: 100px;
-            border: 2px solid var(--color-blue-secondary);
+            border: 3px solid var(--color-blue-secondary);
             border-radius: 50%;
         }
     }
+`
 
-    div{
-        display: flex;
-        flex-direction: column;
+export const IconClose = styled.i`
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 2rem;
+    padding: .3rem;
+    cursor: pointer;
+    color: var(--color-baby-blue);
+    transition: all 0.4s ease-in-out;
+
+    &:hover{
+        color: var(--color-blue-primary);
     }
 
-    
+`
+
+export const InputContainer = styled.div`
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5px;
+        
+        label {
+            padding-top: .8rem;
+            font-size: 18px;
+            padding: .4rem;
+            color: var(--color-baby-blue);
+        }
+
+        input {
+            background-color: #eee;
+            border: 1px solid transparent;
+            padding: .5rem .4rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.4s ease-in-out;
+            
+            &:focus {
+                border: 1px solid var(--color-blue-secondary);
+            }
+        }
+`
+
+export const ButtonConfirm = styled.button`
+    background-color: var(--color-baby-blue);
+    color: #fff;
+    padding: 9px 25px;
+    margin-top: .4rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+
+    &:hover {
+        background-color: var(--color-blue-primary);
+    }
 `
 

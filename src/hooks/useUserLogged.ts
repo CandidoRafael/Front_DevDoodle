@@ -20,7 +20,7 @@ const useUserLogged = () => {
         if(Cookies.get('token')) FindUserLogged()
       }, [])
 
-      return user 
+      
 }
 
 export default useUserLogged

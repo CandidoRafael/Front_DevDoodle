@@ -4,17 +4,19 @@ import { GrMenu } from 'react-icons/gr'
 import { Link, Outlet } from 'react-router-dom'
 import { BiSearch } from 'react-icons/bi'
 import useSearchPosts from '../../hooks/useSearchPost'
-import useUserLogged from '../../hooks/useUserLogged'
 import { useContext } from 'react'
 import { ToogleContext } from '../../Context/ToogleContext'
 import Sidebar from '../Sidebar/Sidebar'
+import { UserContext } from '../../Context/UserContext'
+import useUserLogged from '../../hooks/useUserLogged'
 
 const Navbar = () => {
 
   const { register, handleSubmit, handleSearch, errors, navigate } = useSearchPosts()
-  const user = useUserLogged()
   const { handleToogleSidebar } = useContext(ToogleContext)
-
+  const { user } = useContext(UserContext)
+  useUserLogged()
+  
   return (
     <>
       <Sidebar />
@@ -43,8 +45,8 @@ const Navbar = () => {
               <Button onClick={() => navigate("/auth")}>Entrar</Button>
             )}
       
-          <Hamburger onClick={() => handleToogleSidebar()}>
-              <GrMenu />
+          <Hamburger >
+              <GrMenu onClick={() => handleToogleSidebar()} />
           </Hamburger>
         </Container>
       </Nav>

@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import Cookies from "js-cookie";
 import { User, UserDataLogin, UserDataRegister } from "../types/User";
 
+
 const baseURL = 'https://apidevdoodle.vercel.app'
 
 export const SignUp = (data: UserDataRegister): Promise<AxiosResponse>  => {
@@ -30,6 +31,16 @@ export const userLogged = (): Promise<AxiosResponse<User>> => {
         }
     })
     return response
+}
+
+export const updateUser = (data: any, _id: string) => {
+    const token = Cookies.get("token");
+
+    const headers = {
+        Authorization: `Bearer ${token}`
+    };
+
+    return axios.patch(`${baseURL}/user/update/${_id}`, data, { headers });
 }
 
 function generateUserName(name: string) {

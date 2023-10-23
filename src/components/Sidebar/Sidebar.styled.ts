@@ -44,6 +44,7 @@ export const ContainerClose = styled.div`
     svg{
         font-size: 1.5rem;
         margin-right: 5px;
+        cursor: pointer;
     }
 `
 
