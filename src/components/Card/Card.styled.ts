@@ -12,22 +12,19 @@ export const CardContainer = styled.section`
 `;
 
 export const CardBody = styled.article`
-  
-  width: 100%;
-  height: 100%;
+
 
   div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-top: 1rem;
-    width: 100%;
   }
   
   img {
     border-radius: 1rem;
     width: 100%;
-    height: 301px;
+    height: 300px;
     object-fit: contain;
     mix-blend-mode: darken;
     cursor: pointer;
@@ -35,6 +32,10 @@ export const CardBody = styled.article`
 
     &:hover {
       transform: scale(1.05)
+    }
+
+    @media (max-width: 668px) {
+      height: 100%;
     }
   }
 `;

@@ -19,6 +19,7 @@ body {
   background-color: #f1f1f1;
   height: 100vh;
   max-width: 100vw;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

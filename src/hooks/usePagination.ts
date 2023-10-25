@@ -15,7 +15,7 @@ const usePagination = () => {
         }
     };
 
-  return { page,  setPage , nextPage, prevPage }
+  return { page, setPage , nextPage, prevPage }
 
 }
 

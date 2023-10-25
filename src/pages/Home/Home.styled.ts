@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const HomePosts = styled.section`
    display: grid;
@@ -34,3 +34,18 @@ export const TitleHome = styled.h1`
   letter-spacing: 1px;
   margin-bottom: .3rem;
 `
+
+export const IconLoading = styled.i`
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-top: 10rem;
+
+   svg{
+    width: 50px;
+    height: 50px;
+    color: var(--color-blue-primary);
+    animation: load 1s infinite linear;
+   }
+`
+

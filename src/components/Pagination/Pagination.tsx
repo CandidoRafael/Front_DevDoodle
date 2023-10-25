@@ -6,10 +6,10 @@ import { useContext } from 'react'
 
 const Pagination = () => {
 
-
   const { posts } = useContext(PostContext)
   const { page, nextPage, prevPage } = usePagination()
-  
+  console.log(posts)
+
   return (
     <PaginationContainer>
       <ButtonPagination 

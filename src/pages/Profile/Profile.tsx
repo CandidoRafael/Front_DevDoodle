@@ -9,6 +9,8 @@ import Card from "../../components/Card/Card"
 import { Post } from "../../types/Post"
 import { ToogleContext } from "../../Context/ToogleContext"
 import Modal from "../../components/Modal/Modal"
+import { IconLoading } from "../Home/Home.styled"
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 const Profile = () => {
 
@@ -28,7 +30,9 @@ const Profile = () => {
   const { setToogleModal } = useContext(ToogleContext)
 
   if(!user) {
-    return <p>Loading...</p>
+    return (<IconLoading>
+      <AiOutlineLoading3Quarters />
+    </IconLoading>)
   }
 
   return (

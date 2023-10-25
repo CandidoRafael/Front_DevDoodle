@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Page, Post } from "../types/Post";
+import { Page, Post, PostData } from "../types/Post";
 import Cookies from "js-cookie";
 import { PostContext } from "../Context/PostContext";
 import { useContext } from 'react'
-
 
 export const PostServices = () => {
     const baseURL = 'https://apidevdoodle.vercel.app'
@@ -19,14 +18,12 @@ export const PostServices = () => {
     
     const getTopPosts = async () => {
         const response = await axios.get(`${baseURL}/posts/top`)
-    
         return response.data.post
     }
     
      const searchPosts = async (title: string | undefined) => {
           
         const response = await axios.get(`${baseURL}/posts/search?title=${title}`)
-          
         return response.data
       }
     
@@ -36,11 +33,27 @@ export const PostServices = () => {
                 Authorization: `Bearer ${Cookies.get("token")}`
             }
         })
-    
         return response
     }
 
-    return { getAllPosts, getTopPosts, searchPosts, getAllPostsByUser }
+    const createPost = async (postData: PostData) => {
+        const token = Cookies.get("token");
+
+        const headers = {
+            Authorization: `Bearer ${token}`
+        };
+    
+        const response = await axios.post(`${baseURL}/posts/create`, postData, { headers })
+        return response.data
+    }
+
+    return { 
+        getAllPosts, 
+        getTopPosts, 
+        searchPosts, 
+        getAllPostsByUser,
+        createPost 
+    }
 }
 
 export default PostServices 

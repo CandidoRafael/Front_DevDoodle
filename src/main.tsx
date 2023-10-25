@@ -16,6 +16,8 @@ import Auth from './pages/Auth/Auth.tsx'
 import Profile from './pages/Profile/Profile.tsx'
 import Policy from './pages/Policy/Policy.tsx'
 import Navbar from './components/Navbar/Navbar.tsx'
+import CreatePost from './pages/CreatePost/CreatePost.tsx'
+
 
 const router = createBrowserRouter([
   {
@@ -32,11 +34,15 @@ const router = createBrowserRouter([
         element: <Search />
       },
       {
-        path: '/profile',
+        path: 'createPost',
+        element: <CreatePost />
+      },
+      {
+        path: 'profile',
         element: <Profile />
       },
       {
-        path: '/policy',
+        path: 'policy',
         element: <Policy />
       }
     ]

@@ -27,4 +27,11 @@ export type Page<T> = {
     previousUrl: string | null
     results: Array<T>
     total: number
-} 
+}
+
+export type PostData = {
+    title: string
+    banner: string
+    text: string
+
+}

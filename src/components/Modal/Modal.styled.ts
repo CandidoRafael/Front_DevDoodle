@@ -63,7 +63,8 @@ export const InputContainer = styled.div`
             padding-top: .8rem;
             font-size: 18px;
             padding: .4rem;
-            color: var(--color-baby-blue);
+            font-weight: 600;
+            
         }
 
         input {
@@ -73,6 +74,7 @@ export const InputContainer = styled.div`
             font-size: 1rem;
             border-radius: 8px;
             outline: none;
+            font-weight: 300;
             transition: all 0.4s ease-in-out;
             
             &:focus {

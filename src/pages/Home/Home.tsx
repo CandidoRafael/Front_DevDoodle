@@ -1,9 +1,11 @@
-import { HomePosts, HomeTopPost, TitleHome } from './Home.styled'
+import { HomePosts, HomeTopPost, IconLoading, TitleHome } from './Home.styled'
 import { usePost } from '../../hooks/usePost'
 import { useTopPost } from '../../hooks/useTopPost'
 import Card from "../../components/Card/Card"
 import CardTopPost from '../../components/CardTopPost/CardTopPost'
 import Pagination from '../../components/Pagination/Pagination'
+import Footer from '../../components/Footer/Footer'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 const Home = () => {
   
@@ -14,7 +16,9 @@ const Home = () => {
     <>
       <TitleHome>Trending</TitleHome>
       {isLoadingPosts ? (
-        <p>Loading...</p>
+        <IconLoading>
+          <AiOutlineLoading3Quarters />
+        </IconLoading>
         ) : 
       <>
      <HomeTopPost>
@@ -45,6 +49,7 @@ const Home = () => {
          ))}
      </HomePosts>
      <Pagination />
+     <Footer />
     </>
     }
     </>

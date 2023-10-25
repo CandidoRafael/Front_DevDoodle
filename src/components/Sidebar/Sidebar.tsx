@@ -2,7 +2,7 @@ import './Sidebar.css'
 import { ContainerClose, UlMenu } from "./Sidebar.styled"
 import { AiOutlineHome } from 'react-icons/ai'
 import { BiLogInCircle } from 'react-icons/bi'
-import { BsPostcard } from 'react-icons/bs'
+import { MdOutlinePostAdd } from 'react-icons/md'
 import { MdBalance } from 'react-icons/md'
 import { FaPowerOff } from 'react-icons/fa'
 import { GrClose } from 'react-icons/gr'
@@ -38,9 +38,9 @@ const Sidebar = () => {
             Entrar
           </li>
         </Link>
-        <Link to='/posts'>
+        <Link to='/createPost'>
           <li>
-            <BsPostcard />
+            <MdOutlinePostAdd />
             Criar
           </li>      
         </Link>

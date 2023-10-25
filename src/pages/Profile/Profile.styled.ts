@@ -63,6 +63,10 @@ export const ProfileImage = styled.img`
 
 export const ProfileUser = styled.div`
     padding: 2rem 1rem;
+    
+    h3{
+        font-weight: 500;
+    }
 `
 
 export const ProfileAvatar = styled.img`
