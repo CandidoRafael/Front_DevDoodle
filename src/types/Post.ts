@@ -33,5 +33,4 @@ export type PostData = {
     title: string
     banner: string
     text: string
-
 }

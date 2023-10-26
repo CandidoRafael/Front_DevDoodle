@@ -47,12 +47,19 @@ export const PostServices = () => {
         return response.data
     }
 
+    const loadSinglePost = async (title: string | undefined) => {
+          
+        const response = await axios.get(`${baseURL}/posts/search?title=${title}`)
+        return response.data
+      }
+
     return { 
         getAllPosts, 
         getTopPosts, 
         searchPosts, 
         getAllPostsByUser,
-        createPost 
+        createPost,
+        loadSinglePost
     }
 }
 

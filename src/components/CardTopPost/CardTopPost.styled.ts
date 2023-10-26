@@ -47,7 +47,8 @@ export const CardHeader = styled.article<CardHeaderProps>`
     margin-bottom: 1rem;
     color: #222;
     cursor: pointer;
-    font-size: ${({ size }) => (size ? "2.7rem" : "1.7rem")};    
+
+    font-size: ${({ size }) => (size ? "2.6rem" : "1.7rem")};    
     transition: .3s all ease-in-out;
 
     &:hover {

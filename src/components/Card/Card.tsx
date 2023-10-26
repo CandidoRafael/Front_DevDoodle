@@ -2,7 +2,7 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
 import { TextLimit } from '../TextLimit/TextLimit'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 type CardProps = {
@@ -27,7 +27,7 @@ const Card = ({ title, image, likes, comments, size, username, text, avatar } : 
             <h2>{title}</h2>
           </Link>
           <Link to={`/post/${title}`}>
-            <TextLimit text={text} limit={150} />
+            <TextLimit text={text} limit={60} />
           </Link>
           
         <section>

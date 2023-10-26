@@ -27,7 +27,7 @@ const Navbar = () => {
 
           <form>
             <InputSpace>
-                  <input type="text" onChange={(e) => setTitle(e.target.value)} placeholder='Pesquise...' />
+                  <input type="text" onChange={(e) => setTitle(e.target.value)} placeholder='Pesquisar' />
                   
                   <Link to={`/posts/search/${title}`}>
                   <button disabled={title ? false : true}><BiSearch /></button>
