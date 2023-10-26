@@ -5,7 +5,7 @@ export const HomePosts = styled.section`
     grid-template-columns: repeat(2, 1fr);
     gap: 1.4rem;
     padding: 1em;
-    width: 1024px;
+    width: 80%;
     margin: 1rem auto;
 
     @media (max-width: 1024px) {
@@ -18,7 +18,7 @@ export const HomePosts = styled.section`
 `
 
 export const HomeTopPost = styled.main`
-    width: 1024px;
+    width: 80%;
     margin: 1rem auto 3rem auto;
     
     @media (max-width: 1024px) {

@@ -1,7 +1,9 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
-import { CardAuthor, CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
+import { CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
 import { TextLimit } from '../TextLimit/TextLimit'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 type CardProps = {
   title: string
@@ -18,35 +20,39 @@ const Card = ({ title, image, likes, comments, size, username, text, avatar } : 
 
   return (
     <CardContainer>
-      <CardBody>
-        <div>
-          <img src={image} alt="Imagem" />
-        </div>
-        <div>
-          <CardHeader size={size}>
+    <CardBody>
+      <div>
+        <CardHeader size={size}>
+          <Link to={`/post/${title}`}>
             <h2>{title}</h2>
-            <TextLimit text={text} limit={100}/>
-          </CardHeader>
+          </Link>
+          <Link to={`/post/${title}`}>
+            <TextLimit text={text} limit={150} />
+          </Link>
+          
+        <section>
+           <img src={avatar} alt="imagem" />
+           <p>{username}</p>
+        </section>
+        </CardHeader>
 
-            <CardAuthor>
-              <img src={avatar} alt="Imagem autor" />
-              <p>{username}</p>
-            </CardAuthor>
-            
-          <CardFooter>
-            <section>
-              <AiOutlineLike />
-              <span>{likes?.length}</span>
-            </section>
 
-            <section>
-              <FaRegComment />
-              <span>{comments?.length}</span>
-            </section>
-          </CardFooter>
-        </div>
-      </CardBody>
-    </CardContainer>
+        <CardFooter>
+          <section>
+            <AiOutlineLike />
+            <span>{likes?.length}</span>
+          </section>
+
+          <section>
+            <FaRegComment />
+            <span>{comments?.length}</span>
+          </section>
+        </CardFooter>
+      </div>
+     
+       <img src={image} alt="Imagem" />
+    </CardBody>
+  </CardContainer>
   )
 }
 

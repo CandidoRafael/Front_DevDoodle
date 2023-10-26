@@ -1,6 +1,7 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
+import { Link, useNavigate } from 'react-router-dom'
 
 type CardProps = {
   title: string
@@ -15,13 +16,17 @@ type CardProps = {
 
 const CardTopPost = ({ title, image, likes, comments, size, username, avatar } : CardProps) => {
 
+  const navigate=  useNavigate()
+
   return (
     <CardContainer>
       <CardBody>
-        <img src={image} alt="Imagem" />
+        <img  src={image} alt="Imagem" />
         <div>
           <CardHeader size={size}>
-            <h2>{title}</h2>
+            <Link to={`/post/${title}`}>
+            <h2 >{title}</h2>
+            </Link>
 
             <section>
               <img src={avatar} alt="Imagem Autor" />

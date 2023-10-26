@@ -17,6 +17,7 @@ import Profile from './pages/Profile/Profile.tsx'
 import Policy from './pages/Policy/Policy.tsx'
 import Navbar from './components/Navbar/Navbar.tsx'
 import CreatePost from './pages/CreatePost/CreatePost.tsx'
+import PostPage from './pages/PostPage/PostPage.tsx'
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: 'createPost',
         element: <CreatePost />
+      },
+      {
+        path: 'post/:title',
+        element: <PostPage />
       },
       {
         path: 'profile',

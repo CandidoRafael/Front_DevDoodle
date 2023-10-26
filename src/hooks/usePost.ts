@@ -11,7 +11,7 @@ export const usePost = () => {
 
     const { data: PostsData , isLoading: isLoadingPosts } = useQuery({
         queryKey: ['posts', page],
-        cacheTime: 15,
+        cacheTime: 5,
         queryFn: () => getAllPosts(page),
       })
 

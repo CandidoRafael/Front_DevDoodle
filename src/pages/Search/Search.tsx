@@ -2,13 +2,12 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import PostServices from "../../services/postsServices"
 import { SearchContainer, SearchPosts, TextResults } from "./Search.styled"
-import CardTopPost from "../../components/CardTopPost/CardTopPost"
+import Card from "../../components/Card/Card"
 
 const Search = () => {
 
   const { title } = useParams()
   const { searchPosts } = PostServices()
-
   const [ posts, setPosts ] = useState([])
 
   const handleSearch = async () => {
@@ -40,7 +39,7 @@ const Search = () => {
         </TextResults>
         <SearchPosts>
           {posts.map((post: any) => (
-            <CardTopPost
+            <Card
               
               username={post.username}
               avatar={post.avatar}

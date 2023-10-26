@@ -24,7 +24,7 @@ export const SearchPosts = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    width: 90%;
+    width: 80%;
  
     @media (max-width: 560px) {
       width: 90%;

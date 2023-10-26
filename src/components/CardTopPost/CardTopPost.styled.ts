@@ -22,19 +22,13 @@ export const CardBody = styled.article`
     padding: 1rem 1.2rem;
   }
 
+
   img {
-    width: 33%;
+    width: 40%;
     object-fit: cover;
     object-position: center;
     mix-blend-mode: darken;
-    border-radius: 0.3rem;
-
-    cursor: pointer;
-    transition: .2s all ease-in-out;
-
-    &:hover {
-      transform: scale(1.05)
-    }
+    border-radius: 0.3rem;    
   }
 
   @media (max-width: 668px) {
@@ -53,7 +47,16 @@ export const CardHeader = styled.article<CardHeaderProps>`
     margin-bottom: 1rem;
     color: #222;
     cursor: pointer;
-    font-size: ${({ size }: any) => (size ? "2.7rem" : "1.7rem")};    
+    font-size: ${({ size }) => (size ? "2.7rem" : "1.7rem")};    
+    transition: .3s all ease-in-out;
+
+    &:hover {
+      color: var(--color-blue-primary);
+    }
+  }
+
+  a {
+    text-decoration: none;
   }
 
   section {

@@ -1,10 +1,10 @@
 import logo from '../../assets/logo.png'
-import { Button, Container, ErrorSpan, Hamburger, ImageLogo, InputSpace, LinkProfile, Nav } from './Navbar.styled'
+import { Button, Container, Hamburger, ImageLogo, InputSpace, LinkProfile, Nav } from './Navbar.styled'
 import { GrMenu } from 'react-icons/gr'
 import { Link, Outlet } from 'react-router-dom'
 import { BiSearch } from 'react-icons/bi'
 import useSearchPosts from '../../hooks/useSearchPost'
-import { useContext } from 'react'
+import { useContext,} from 'react'
 import { ToogleContext } from '../../Context/ToogleContext'
 import Sidebar from '../Sidebar/Sidebar'
 import { UserContext } from '../../Context/UserContext'
@@ -12,11 +12,11 @@ import useUserLogged from '../../hooks/useUserLogged'
 
 const Navbar = () => {
 
-  const { register, handleSubmit, handleSearch, errors, navigate } = useSearchPosts()
+  const { title, setTitle } = useSearchPosts()
   const { handleToogleSidebar } = useContext(ToogleContext)
   const { user } = useContext(UserContext)
   useUserLogged()
-  
+ 
   return (
     <>
       <Sidebar />
@@ -25,10 +25,13 @@ const Navbar = () => {
           <ImageLogo src={logo} alt="logo DevDoodle" />
         </Link>
 
-          <form onSubmit={handleSubmit(handleSearch)} >
+          <form>
             <InputSpace>
-                  <input type="text" {...register("title")} placeholder='Pesquise...' />
-                  <button><BiSearch /></button>
+                  <input type="text" onChange={(e) => setTitle(e.target.value)} placeholder='Pesquise...' />
+                  
+                  <Link to={`/posts/search/${title}`}>
+                  <button disabled={title ? false : true}><BiSearch /></button>
+                  </Link>
             </InputSpace>
           </form>
 
@@ -42,7 +45,7 @@ const Navbar = () => {
                 </LinkProfile>
              
             ) : (
-              <Button onClick={() => navigate("/auth")}>Entrar</Button>
+              <Button>Entrar</Button>
             )}
       
           <Hamburger >
@@ -51,11 +54,11 @@ const Navbar = () => {
         </Container>
       </Nav>
 
-      {errors.title ? (
+      {/* {errors.title ? (
            <ErrorSpan>
            {errors.title.message}
            </ErrorSpan>
-      ): null}
+      ): null} */}
     
   <Outlet />
     </>
