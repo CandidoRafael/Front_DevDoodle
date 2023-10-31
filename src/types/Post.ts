@@ -1,14 +1,23 @@
+type CommentsType = {
+  comment: { comment: string }
+  createdAt: Date
+  idComment: string
+  userId: string
+}
+
+
 export type Post = {
     id: string
     avatar: string
     banner: string
-    comments: string
-    likes: string
+    comments: []
+    likes: CommentsType[]
     text: string
     title: string
     username: string
     name: string
 }
+
  
 export type PostResults = {
     results: Post[]

@@ -1,11 +1,15 @@
 import axios from "axios";
-import { Page, Post, PostData } from "../types/Post";
 import Cookies from "js-cookie";
+import { Page, Post, PostData } from "../types/Post";
 import { PostContext } from "../Context/PostContext";
 import { useContext } from 'react'
 
 export const PostServices = () => {
     const baseURL = 'https://apidevdoodle.vercel.app'
+    const token = Cookies.get('token')
+    const headers = {
+        Authorization: `Bearer ${token}`
+    };
 
     const { setPosts } = useContext(PostContext)
     
@@ -21,37 +25,38 @@ export const PostServices = () => {
         return response.data.post
     }
     
-     const searchPosts = async (title: string | undefined) => {
+    const searchPosts = async (title: string | undefined) => {
           
         const response = await axios.get(`${baseURL}/posts/search?title=${title}`)
         return response.data
-      }
+    }
     
-     const getAllPostsByUser = async () => {
-        const response = await axios.get(`${baseURL}/posts/byUserId`, {
-            headers: {
-                Authorization: `Bearer ${Cookies.get("token")}`
-            }
-        })
+    const getAllPostsByUser = async () => {
+        const response = await axios.get(`${baseURL}/posts/byUserId`,{ headers })
         return response
     }
 
     const createPost = async (postData: PostData) => {
-        const token = Cookies.get("token");
 
-        const headers = {
-            Authorization: `Bearer ${token}`
-        };
-    
         const response = await axios.post(`${baseURL}/posts/create`, postData, { headers })
         return response.data
     }
 
-    const loadSinglePost = async (title: string | undefined) => {
-          
+    const loadSinglePost = async (title: string | undefined) => { 
         const response = await axios.get(`${baseURL}/posts/search?title=${title}`)
         return response.data
-      }
+    }
+
+    const addComment = async (postId: string, commentData: any) => {
+
+        const response = await axios.patch(`${baseURL}/posts/${postId}/comment`, commentData, { headers })
+        return response.data
+    }
+
+    const deleteComment = async (postId: string, idComment: string ) => {
+        const response = await axios.patch(`${baseURL}/posts/${postId}/${idComment}/comment`, {}, { headers })
+        return response.data
+    }
 
     return { 
         getAllPosts, 
@@ -59,7 +64,9 @@ export const PostServices = () => {
         searchPosts, 
         getAllPostsByUser,
         createPost,
-        loadSinglePost
+        loadSinglePost,
+        addComment,
+        deleteComment
     }
 }
 

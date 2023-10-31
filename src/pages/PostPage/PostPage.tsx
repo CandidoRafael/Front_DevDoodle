@@ -1,39 +1,23 @@
-import { useParams } from "react-router-dom"
-import { useEffect, useState } from 'react'
-import PostServices from "../../services/postsServices"
-import { Post } from "../../types/Post"
-import { PostAuthor, PostContainer, PostImage } from "./PostPage.styled"
-import Prism from 'prismjs'
 import { PrismWrapper } from "./Prims.theme"
+import { PostAuthor, PostContainer, PostImage } from "./PostPage.styled"
 import { IconLoading } from "../Home/Home.styled"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
+import Comments from "../../components/Comments/Comments"
+import AddComments from '../../components/AddComments/AddComents'
+import usePostPage from "../../hooks/usePostPage"
+
+
 const PostPage = () => {
 
-  const { title } = useParams()
-  const { loadSinglePost } = PostServices()
-  const [post, setPost] = useState<Post | undefined>()
-  const [loading, setLoading] = useState(false)
-
-  const handlePost = async () => {
-    try {
-      setLoading(true)
-      const res = await loadSinglePost(title)
-      setPost(res.foundPosts[0])
-      setLoading(false)
-      console.log(post)
-    } catch (error) {
-      console.log(error)
-      setLoading(true)
-    }
-  }
-
-  useEffect(() => {
-    handlePost()
-    setTimeout(() => {
-      Prism.highlightAll()
-    }, 800)
-  }, [])
+  const { 
+    loading, 
+    post, 
+    comments, 
+    addCommentToPost, 
+    handleDelete,
+    Toaster
+   } = usePostPage()
 
   return (
     <PostContainer>
@@ -44,19 +28,37 @@ const PostPage = () => {
      ): (
       <>  
       <article>
-      <h1>{post?.title}</h1>
-      <PostAuthor>
-        <img src={post?.avatar}  alt="Avatar" />
-        <p>{post?.username}</p>
-      </PostAuthor>
-      <PostImage>
-         <img src={post?.banner} alt="" />
-      </PostImage>
-    </article>
+        <h1>{post?.title}</h1>
+        <PostAuthor>
+          <img src={post?.avatar}  alt="Avatar" />
+          <p>{post?.username}</p>
+        </PostAuthor>
+        <PostImage>
+          <img src={post?.banner} alt="" />
+        </PostImage>
+      </article>
 
-    <PrismWrapper dangerouslySetInnerHTML={{__html: post?.text || ''}}></PrismWrapper>
+      <PrismWrapper dangerouslySetInnerHTML={{__html: post?.text || ''}}></PrismWrapper>
+
+        <AddComments addCommentToPost={addCommentToPost} />
+        <Comments comments={comments} deleteComment={handleDelete} />
+        <Toaster 
+           toastOptions={{
+            success: {
+              style: {
+                background: 'var(--color-blue-primary)',
+                color: '#fff'
+              },
+            },
+            error: {
+              style: {
+                background: 'darkred',
+                color: '#fff'
+              },
+            },
+          }}
+        />
       </>
-      
      )}
     </PostContainer>
   )

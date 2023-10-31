@@ -33,7 +33,9 @@ export const PostAuthor = styled.div`
     margin: 1rem 0 1rem 0;
 
     img{
-    width: 50px;
+    width: 55px;
+    box-shadow: rgba(50, 50, 105, 0.149) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     border-radius: 50%;
    }
 `
