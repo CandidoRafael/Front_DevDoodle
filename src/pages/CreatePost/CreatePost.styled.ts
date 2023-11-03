@@ -4,6 +4,10 @@ export const ContainerPost = styled.div`
    width: 80%;
    margin: auto;
    padding: 1rem;
+
+   @media (max-width: 668px) {
+      width: 100%;
+   }
    
    h3{
       text-align: center;
