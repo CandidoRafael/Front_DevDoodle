@@ -5,7 +5,7 @@ import { UserContext } from "../Context/UserContext"
 
 const useUserLogged = () => {
    
-    const { user, setUser } = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
 
     async function FindUserLogged() {
         try {
