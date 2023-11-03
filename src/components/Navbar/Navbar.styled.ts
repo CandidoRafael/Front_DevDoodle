@@ -117,6 +117,12 @@ export const Container = styled.div`
   align-items: center;
   padding: .4rem;
   gap: 2rem;
+
+  @media (max-width: 668px) {
+    gap: 1rem;
+    margin-left: 1rem;
+  }
+
 `
 export const ErrorSpan = styled.span`
     background-color: #ffaeae;
