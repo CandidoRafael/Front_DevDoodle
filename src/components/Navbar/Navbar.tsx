@@ -9,6 +9,7 @@ import { ToogleContext } from '../../Context/ToogleContext'
 import Sidebar from '../Sidebar/Sidebar'
 import { UserContext } from '../../Context/UserContext'
 import useUserLogged from '../../hooks/useUserLogged'
+import { FaUser } from 'react-icons/fa'
 
 const Navbar = () => {
 
@@ -38,14 +39,16 @@ const Navbar = () => {
         <Container>
 
         { user ? (
-                <LinkProfile >
+                <LinkProfile>
                    <Link to='/profile'>
-                    {user.name ? `Olá, ${user.name}` : null}
+                    <FaUser />
                    </Link>
                 </LinkProfile>
              
             ) : (
-              <Button>Entrar</Button>
+              <Link to='/auth'>
+                <Button>Entrar</Button>
+              </Link>
             )}
       
           <Hamburger >
@@ -53,13 +56,6 @@ const Navbar = () => {
           </Hamburger>
         </Container>
       </Nav>
-
-      {/* {errors.title ? (
-           <ErrorSpan>
-           {errors.title.message}
-           </ErrorSpan>
-      ): null} */}
-    
   <Outlet />
     </>
   )

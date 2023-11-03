@@ -1,9 +1,11 @@
 import { useRef, useState } from "react"
 import { TitleHome } from "../Home/Home.styled"
-import { ContainerPost, MainPost } from "./CreatePost.styled"
+import { ContainerPost, MainPost, Notice } from "./CreatePost.styled"
 import JoditEditor from "jodit-react"
 import { ButtonPagination } from "../../components/Pagination/Pagination.styled"
 import PostServices from "../../services/postsServices"
+import { AiFillWarning } from "react-icons/ai"
+import { Link } from "react-router-dom"
 
 const CreatePost = () => {
 
@@ -51,6 +53,10 @@ const CreatePost = () => {
       <TitleHome>Crie seu Post</TitleHome>
       <h3>Contribua para a comunidade dev :)</h3>  
       
+      <Notice>
+        <AiFillWarning />  <p>Atenção: Pedimos que <Link to='/tutorial'>leia isso antes</Link> de fazer sua primeira publicação.</p>
+      </Notice>
+
       <MainPost>
         <h2>O que você está pensando ?</h2>
         <form onSubmit={handleCreatePost}>

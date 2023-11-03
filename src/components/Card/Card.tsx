@@ -26,7 +26,6 @@ const Card = ({ post } : { post: Post }) => {
         </section>
         </CardHeader>
 
-
         <CardFooter>
           <section>
             <AiOutlineLike />
@@ -34,7 +33,9 @@ const Card = ({ post } : { post: Post }) => {
           </section>
 
           <section>
-            <FaRegComment />
+            <Link to={`/post/${post.title}#comments`}>
+              <FaRegComment />
+            </Link>
             <span>{post?.comments?.length}</span>
           </section>
         </CardFooter>

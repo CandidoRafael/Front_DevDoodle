@@ -10,16 +10,20 @@ export const ContainerPost = styled.div`
    }
 
    h2{
-    font-size: 1.2rem;
     font-size: 1.6rem;
     margin-bottom: 1rem;
+
+
+    @media (max-width: 668px) {
+      font-size: 20px;
+    }
    }
 `
 
 export const MainPost = styled.main`
    padding: 1rem;
    border-radius: .3rem;
-   margin-top: 2rem;
+   margin-top: 1.4rem;
    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.18);
    -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.18);
    -moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.18);
@@ -32,7 +36,7 @@ export const MainPost = styled.main`
   label {
     display: block;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     color: #222;
     padding-bottom: .3rem;
   }
@@ -63,5 +67,21 @@ export const ShowContentPost = styled.span`
    code {
       font-family: monospace;
 
+   }
+`
+
+export const Notice = styled.section`
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-weight: 500;
+   margin-top: 2rem;
+   border: 1px solid darkgoldenrod;
+   padding: .7rem;
+   border-radius: .3rem;
+
+   svg {
+      color: darkgoldenrod;
+      font-size: 1.6rem;
    }
 `

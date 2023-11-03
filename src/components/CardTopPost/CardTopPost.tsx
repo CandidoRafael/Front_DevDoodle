@@ -16,7 +16,7 @@ const CardTopPost = ({ topPost } : { topPost: Post }) => {
 
 
   const checkLiked = () => {
-    const likedPosts = JSON.parse(localStorage.getItem(`likedPosts_${user?._id}`) ?? 'null') || [];
+    const likedPosts = JSON.parse(localStorage.getItem(`likeTopPost_${user?._id}`) ?? 'null') || [];
     return likedPosts.includes(topPost.id);
   };
 
@@ -33,11 +33,11 @@ const CardTopPost = ({ topPost } : { topPost: Post }) => {
      
       if (isLiked) {
        
-        localStorage.setItem(`likedPosts_${user?._id}`, JSON.stringify(likedPosts.filter((id: string) => id !== topPost.id)));
+        localStorage.setItem(`likeTopPost_${user?._id}`, JSON.stringify(likedPosts.filter((id: string) => id !== topPost.id)));
         setLikeCount(likeCount - 1); 
       } else {
        
-        localStorage.setItem(`likedPosts_${user?._id}`, JSON.stringify([...likedPosts, topPost.id]));
+        localStorage.setItem(`likeTopPost_${user?._id}`, JSON.stringify([...likedPosts, topPost.id]));
         setLikeCount(likeCount + 1); 
       }
 
@@ -72,7 +72,9 @@ const CardTopPost = ({ topPost } : { topPost: Post }) => {
             </section>
 
             <section>
-              <FaRegComment />
+              <Link to={`/post/${topPost.title}#comments`}>
+               <FaRegComment />
+              </Link>
               <span>{topPost.comments?.length}</span>
             </section>
           </CardFooter>

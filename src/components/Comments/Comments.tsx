@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { CommentArticle,  IconDeleteComment,  SectionComment } from './Comments.styled'
 import { UserContext } from '../../Context/UserContext';
 import { MdDelete } from 'react-icons/md'
@@ -7,6 +7,8 @@ import { MdDelete } from 'react-icons/md'
 const Comments = ({ comments, deleteComment }: any) => {
 
   const { user } = useContext(UserContext)
+
+  const commentsRef = useRef<HTMLDivElement | null>(null)
   
    const formatDate = (data: any) => {
         const partes = data.split('-'); 
@@ -19,10 +21,16 @@ const Comments = ({ comments, deleteComment }: any) => {
         }
         return data;
       }
+
+     useEffect(() => {
+      if(window.location.hash === '#comments' && commentsRef.current) {
+        commentsRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+     }, []) 
   return (
     <>
       <h2>Comentarios ({comments?.length})</h2>
-    <CommentArticle>
+    <CommentArticle id='comments' ref={commentsRef}>
      
         {comments?.map((comment: any) => (
             <SectionComment key={comment?.idComment}>

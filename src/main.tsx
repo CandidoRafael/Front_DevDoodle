@@ -18,6 +18,7 @@ import Policy from './pages/Policy/Policy.tsx'
 import Navbar from './components/Navbar/Navbar.tsx'
 import CreatePost from './pages/CreatePost/CreatePost.tsx'
 import PostPage from './pages/PostPage/PostPage.tsx'
+import Tutorial from './pages/Tutorial/Tutorial.tsx'
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'policy',
         element: <Policy />
+      },
+      {
+        path: 'tutorial',
+        element: <Tutorial />
       }
     ]
   },

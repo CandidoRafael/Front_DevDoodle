@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const HomePosts = styled.section`
    display: grid;
@@ -28,7 +28,6 @@ export const HomeTopPost = styled.main`
 
 export const TitleHome = styled.h1`
   text-align: center;
-  font-weight: 800;
   font-size: 2.8rem;
   color: var(--color-blue-primary);
   letter-spacing: 1px;

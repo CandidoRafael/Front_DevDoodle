@@ -64,12 +64,11 @@ export const CardHeader = styled.article<SizeCard>`
     }
   }
 
-
   h2 {
     margin-bottom: 1rem;
     font-size: ${({ size }) => (size ? "3rem" : "1.1rem")};
     width: 100%;
-
+    font-weight: 800;
   }
 
   section {
@@ -96,6 +95,11 @@ export const CardFooter = styled.article`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+
+    a{
+      color: #222;
+      display: flex;
+    }
 
     svg {
       cursor: pointer;

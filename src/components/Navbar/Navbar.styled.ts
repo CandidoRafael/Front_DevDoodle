@@ -43,7 +43,7 @@ export const InputSpace = styled.div`
       border: none; 
       font-size: 1.3rem;
       background-color: var(--color-blue-primary);
-      padding: 0.63rem;
+      padding: 0.7rem;
       cursor: pointer;
       border-radius: 0 .3rem .3rem 0;
       color: #f5f5f5;
@@ -54,8 +54,9 @@ export const InputSpace = styled.div`
       input {
         border: 1px solid red;
         outline: none;
-        font-size: 1.1rem;
-        padding: 0.7rem;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.8rem;
         background-color: #f5f5f5;
         border: 1px solid transparent;
         width: 100%;
@@ -97,13 +98,16 @@ export const Button = styled.button`
 
 export const Hamburger = styled.span`
   cursor: pointer;
-  transition: .3s all linear;
+  transition: .2s all linear;
+  
+  
   svg{
     font-size: 1.6rem;  
+    
     }
 
     &:hover {
-      transform: scale(1.2)
+      transform: scale(1.1);
     }
 
 ` 
@@ -124,7 +128,17 @@ export const ErrorSpan = styled.span`
     font-weight: bold;
 `
 export const LinkProfile = styled.div`
-    
+
+svg {
+      transition: .2s all linear;
+      font-size: 1.6rem;
+
+      &:hover {
+        color: var(--color-baby-blue);
+        transform: scale(1.1);
+      }
+    }
+
     a {
       color: var(--color-blue-primary);
     }

@@ -42,6 +42,7 @@ export const CardHeader = styled.article<CardHeaderProps>`
   
   h2 {
     line-height: 1.2;
+    
     margin-bottom: 1rem;
     color: #222;
     cursor: pointer;
@@ -82,6 +83,16 @@ export const CardFooter = styled.article`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+
+    i {
+      display: flex;
+    }
+
+    a {
+      text-decoration: none;
+      color: #222;
+      display: flex;
+    }
 
     svg {
       cursor: pointer;
