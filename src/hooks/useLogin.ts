@@ -33,7 +33,7 @@ export const useLogin = () => {
           Cookies.set("token", response.data, { expires: 1 })
           navigate('/')
           resetSignIn()
-         } catch (error) {
+         } catch (error: any) {
             setErrorApi(error.response.data)
          }
       }
