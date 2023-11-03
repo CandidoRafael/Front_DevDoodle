@@ -13,6 +13,12 @@ Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 - ZOD
 - React-Hook-Form
 - Context-API
+- React-Query
+- js-cookies
+- Jodit-react
+- react-hot-toast
+- Prism.js
+- syntax-highlighter
 
 ## Back-End
   
