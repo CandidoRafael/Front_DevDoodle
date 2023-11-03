@@ -4,13 +4,14 @@ import { ProfileActions, ProfileAvatar, ProfileContainer, ProfileHeader, Profile
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
-import PostServices from "../../services/postsServices"
-import Card from "../../components/Card/Card"
 import { Post } from "../../types/Post"
 import { ToogleContext } from "../../Context/ToogleContext"
-import Modal from "../../components/Modal/Modal"
 import { IconLoading } from "../Home/Home.styled"
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+
+import PostServices from "../../services/postsServices"
+import Modal from "../../components/Modal/Modal"
+import Card from "../../components/Card/Card"
 
 const Profile = () => {
 
@@ -65,13 +66,7 @@ const Profile = () => {
           userPosts?.map((post: Post) => (
             <Card
               key={post.id}
-              title={post.title}
-              text={post.text}
-              avatar={post.avatar}
-              username={post.username}
-              image={post.banner}
-              likes={post.likes}
-              comments={post.comments}
+              post={post}
             />
           ))
         ): <span>Você ainda não criou publicações :(</span>}

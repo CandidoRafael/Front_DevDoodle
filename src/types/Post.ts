@@ -1,21 +1,14 @@
-type CommentsType = {
-  comment: { comment: string }
-  createdAt: Date
-  idComment: string
-  userId: string
-}
-
-
 export type Post = {
     id: string
     avatar: string
     banner: string
     comments: []
-    likes: CommentsType[]
+    likes: []
     text: string
     title: string
     username: string
-    name: string
+    name: string,
+    size: string
 }
 
  

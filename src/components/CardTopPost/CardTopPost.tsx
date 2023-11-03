@@ -1,48 +1,79 @@
-import { AiOutlineLike } from 'react-icons/ai'
+import { AiOutlineLike, AiFillLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import PostServices from '../../services/postsServices'
+import { Post } from '../../types/Post'
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../../Context/UserContext'
 
-type CardProps = {
-  title: string
-  text?: string
-  image: string
-  likes: string
-  comments: string
-  username: string
-  avatar: string
-  size?: string
-}
+const CardTopPost = ({ topPost } : { topPost: Post }) => {
 
-const CardTopPost = ({ title, image, likes, comments, size, username, avatar } : CardProps) => {
+  const { likePost } = PostServices()
+  const { user } = useContext(UserContext)
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
 
-  const navigate=  useNavigate()
+
+  const checkLiked = () => {
+    const likedPosts = JSON.parse(localStorage.getItem(`likedPosts_${user?._id}`) ?? 'null') || [];
+    return likedPosts.includes(topPost.id);
+  };
+
+  useEffect(() => {
+    setLikeCount(topPost?.likes.length);
+    setIsLiked(checkLiked());
+  }, [user?._id]);
+
+  const handleLike = async () => {
+    try {
+      await likePost(topPost.id);
+      
+      const likedPosts = JSON.parse(localStorage.getItem(`likedPosts_${user?._id}`) ?? 'null') || [];
+     
+      if (isLiked) {
+       
+        localStorage.setItem(`likedPosts_${user?._id}`, JSON.stringify(likedPosts.filter((id: string) => id !== topPost.id)));
+        setLikeCount(likeCount - 1); 
+      } else {
+       
+        localStorage.setItem(`likedPosts_${user?._id}`, JSON.stringify([...likedPosts, topPost.id]));
+        setLikeCount(likeCount + 1); 
+      }
+
+      setIsLiked(!isLiked); 
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <CardContainer>
       <CardBody>
-        <img  src={image} alt="Imagem" />
+        <img  src={topPost.banner} alt="Imagem" />
         <div>
-          <CardHeader size={size}>
-            <Link to={`/post/${title}`}>
-            <h2 >{title}</h2>
+          <CardHeader size={topPost.size}>
+            <Link to={`/post/${topPost.title}`}>
+            <h2 >{topPost.title}</h2>
             </Link>
 
             <section>
-              <img src={avatar} alt="Imagem Autor" />
-              <p>{username}</p>
+              <img src={topPost.avatar} alt="Imagem Autor" />
+              <p>{topPost.username}</p>
             </section>
           </CardHeader>
 
           <CardFooter>
             <section>
-              <AiOutlineLike />
-              <span>{likes?.length}</span>
+              <i onClick={() => handleLike()}>
+               {isLiked ? <AiFillLike /> : <AiOutlineLike />}
+              </i>
+              <span>{likeCount}</span>
             </section>
 
             <section>
               <FaRegComment />
-              <span>{comments?.length}</span>
+              <span>{topPost.comments?.length}</span>
             </section>
           </CardFooter>
         </div>

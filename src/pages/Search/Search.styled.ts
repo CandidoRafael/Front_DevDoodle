@@ -32,14 +32,17 @@ export const SearchPosts = styled.div`
 `
 
 export const TextResults = styled.div`
-    padding: 1.7rem;
+    padding: 1.2rem;
     background-color: #fff;
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    border-radius: .3rem;
 
+    border-radius: .3rem;
+    box-shadow: rgba(50, 50, 105, 0.149) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    
     span {
-        font-size: 1rem;
+      padding-right: .2rem;
     }
 `

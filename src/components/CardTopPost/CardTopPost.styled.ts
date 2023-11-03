@@ -9,7 +9,6 @@ export const CardContainer = styled.section`
     flex-direction: column;
     gap: 1rem;
     max-width: 100%;
-    ;
   `;
 
 export const CardBody = styled.article`
@@ -21,7 +20,6 @@ export const CardBody = styled.article`
     justify-content: space-between;
     padding: 1rem 1.2rem;
   }
-
 
   img {
     width: 40%;
@@ -96,8 +94,8 @@ export const CardAuthor = styled.section`
   align-items: center;
   gap: .7rem;
 
-`
+`;
 
 export const ImageAuthor = styled.img`
   width: 50rem;
-`
+`;

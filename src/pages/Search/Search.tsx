@@ -40,15 +40,8 @@ const Search = () => {
         <SearchPosts>
           {posts.map((post: any) => (
             <Card
-              
-              username={post.username}
-              avatar={post.avatar}
               key={post.id}
-              title={post.title}
-              text={post.text}
-              image={post.banner}
-              likes={post.likes}
-              comments={post.comments}        
+              post={post}      
             />
           ))}  
         </SearchPosts>  

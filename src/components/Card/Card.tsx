@@ -3,36 +3,26 @@ import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
 import { TextLimit } from '../TextLimit/TextLimit'
 import { Link } from 'react-router-dom'
+import { Post } from '../../types/Post'
 
 
-type CardProps = {
-  title: string
-  text?: string
-  image: string
-  likes: string
-  comments: string
-  avatar: string
-  username: string
-  size?: string
-}
-
-const Card = ({ title, image, likes, comments, size, username, text, avatar } : CardProps) => {
+const Card = ({ post } : { post: Post }) => {
 
   return (
     <CardContainer>
     <CardBody>
       <div>
-        <CardHeader size={size}>
-          <Link to={`/post/${title}`}>
-            <h2>{title}</h2>
+        <CardHeader size={post?.size}>
+          <Link to={`/post/${post?.title}`}>
+            <h2>{post?.title}</h2>
           </Link>
-          <Link to={`/post/${title}`}>
-            <TextLimit text={text} limit={60} />
+          <Link to={`/post/${post?.title}`}>
+            <TextLimit text={post?.text} limit={60} />
           </Link>
           
         <section>
-           <img src={avatar} alt="imagem" />
-           <p>{username}</p>
+           <img src={post?.avatar} alt="imagem" />
+           <p>{post?.username}</p>
         </section>
         </CardHeader>
 
@@ -40,17 +30,17 @@ const Card = ({ title, image, likes, comments, size, username, text, avatar } : 
         <CardFooter>
           <section>
             <AiOutlineLike />
-            <span>{likes?.length}</span>
+            <span>{post?.likes?.length}</span>
           </section>
 
           <section>
             <FaRegComment />
-            <span>{comments?.length}</span>
+            <span>{post?.comments?.length}</span>
           </section>
         </CardFooter>
       </div>
      
-       <img src={image} alt="Imagem" />
+       <img src={post?.banner} alt="Imagem" />
     </CardBody>
   </CardContainer>
   )

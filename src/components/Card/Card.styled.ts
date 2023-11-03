@@ -14,6 +14,7 @@ export const CardContainer = styled.section`
   border-radius: 0.3rem;
   background-color: #fff;
 `;
+
 export const CardBody = styled.article`
   display: flex;
   width: 100%;
@@ -32,6 +33,10 @@ export const CardBody = styled.article`
     object-fit: cover;
     object-position: center;
     border-radius: 0 0.3rem 0.3rem 0;
+
+    @media (max-width: 668px) {
+      border-radius: .3rem .3rem 0 0;
+    }
   }
 
   @media (max-width: 668px) {
@@ -91,5 +96,9 @@ export const CardFooter = styled.article`
     display: flex;
     align-items: center;
     gap: 0.2rem;
+
+    svg {
+      cursor: pointer;
+    }
   }
 `;

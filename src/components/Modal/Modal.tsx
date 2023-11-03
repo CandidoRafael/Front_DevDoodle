@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { schemaProfile } from "../../schemas/schemaProfile"
 import { SpanError } from "../../pages/Auth/Auth.styled"
 import { UserProfile } from "../../types/User"
+// import { Toaster, toast } from "react-hot-toast"
 
 
 const Modal = () => {
@@ -30,12 +31,21 @@ const Modal = () => {
    const handleForm = async (data: UserProfile) => {
       try {
         await updateUser(data, user?._id)
-        setToogleModal(false)
         const newUser = await userLogged()
         setUser(newUser.data)
+        // toast.success('Dados atualizados!', {
+        //   position: 'bottom-right',
+        //   duration: 2400
+        // })
+        setToogleModal(false)
         reset()
       } catch (error) {
         console.log(error)
+
+        //  toast.success('Dados atualizados!', {
+        //   position: 'bottom-right',
+        //   duration: 2400
+        // })
       }
    }
 
@@ -89,6 +99,22 @@ const Modal = () => {
         <ButtonConfirm>Confirmar</ButtonConfirm>
         </form>
       </ModalContainer>
+      {/* <Toaster 
+         toastOptions={{
+          success: {
+            style: {
+              background: 'var(--color-blue-primary)',
+              color: '#fff'
+            },
+          },
+          error: {
+            style: {
+              background: 'darkred',
+              color: '#fff'
+            },
+          },
+        }} 
+      /> */}
     </BackgroundModal>
     )
    }

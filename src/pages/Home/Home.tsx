@@ -11,7 +11,7 @@ const Home = () => {
   
   const { PostsData, isLoadingPosts } = usePost()
   const { topPostData, isLoadingTopPost } = useTopPost()
-
+  
   return (
     <>
       <TitleHome>Trending</TitleHome>
@@ -23,28 +23,18 @@ const Home = () => {
       <>
      <HomeTopPost>
        {isLoadingTopPost && isLoadingTopPost ? ( null
-       ) : (  <CardTopPost
-        size="true"
-        avatar={topPostData.avatar}
-        title={topPostData.title} 
-        image={topPostData.banner}
-        likes={topPostData.likes}
-        username={topPostData.username}
-        comments={topPostData.comments}       
-        />)}
+       ) : (  
+       <CardTopPost
+         topPost={topPostData}    
+        />
+        )}
      </HomeTopPost>
 
      <HomePosts>
        {PostsData?.results?.map((post) => (
          <Card
-         key={post.id}
-         title={post.title}
-         avatar={post.avatar}
-         text={post.text}
-         image={post.banner}
-         likes={post.likes}
-         username={post.username}
-         comments={post.comments}        
+          key={post.id}
+          post={post}    
          />
          ))}
      </HomePosts>

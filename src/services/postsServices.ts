@@ -6,6 +6,7 @@ import { useContext } from 'react'
 
 export const PostServices = () => {
     const baseURL = 'https://apidevdoodle.vercel.app'
+    
     const token = Cookies.get('token')
     const headers = {
         Authorization: `Bearer ${token}`
@@ -58,6 +59,12 @@ export const PostServices = () => {
         return response.data
     }
 
+    const likePost = async (postId: string) => {
+        const response = await axios.patch(`${baseURL}/posts/${postId}/like`, {}, { headers })
+        response.data
+    }
+
+
     return { 
         getAllPosts, 
         getTopPosts, 
@@ -66,7 +73,8 @@ export const PostServices = () => {
         createPost,
         loadSinglePost,
         addComment,
-        deleteComment
+        deleteComment,
+        likePost
     }
 }
 
