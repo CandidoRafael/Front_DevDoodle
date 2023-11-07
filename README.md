@@ -1,6 +1,6 @@
 # Projeto DevDoodle
 
-Esse projeto será um blog para publicações sobre tecnologia, dicas e tutoriais.
+Esse projeto é um blog para publicações sobre tecnologia, dicas e tutoriais.
 Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 
 ## Tecnologias utilizadas:
