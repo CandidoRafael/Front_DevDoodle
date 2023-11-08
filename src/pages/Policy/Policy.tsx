@@ -2,6 +2,7 @@ import Footer from "../../components/Footer/Footer"
 import { ContainerPolicy, SectionPolicy } from "./Policy.styled"
 
 const Policy = () => {
+
   return (
     <>
     <ContainerPolicy>

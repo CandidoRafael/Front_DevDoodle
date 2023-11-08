@@ -1,39 +1,24 @@
-import { useContext } from "react"
-import { UserContext } from "../../Context/UserContext"
 import { ProfileActions, ProfileAvatar, ProfileContainer, ProfileHeader, ProfileIconAdd, ProfileIconEdit, ProfileImage, ProfilePosts, ProfileUser } from "./Profile.styled"
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
 import { Post } from "../../types/Post"
-import { ToogleContext } from "../../Context/ToogleContext"
 import { IconLoading } from "../Home/Home.styled"
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-import PostServices from "../../services/postsServices"
 import Modal from "../../components/Modal/Modal"
 import Card from "../../components/Card/Card"
+import useProfile from "../../hooks/useProfile"
 
 const Profile = () => {
 
-  const { user } = useContext(UserContext)
-  const { getAllPostsByUser } = PostServices()
-  const [userPosts, setUserPosts] = useState([])
-  
-  const findAllPostsByUser = async () => {
-    const response = await getAllPostsByUser()
-    setUserPosts(response.data.postsByUser)
-  }
-
-  useEffect(() => {
-    findAllPostsByUser()
-  }, [])
-
-  const { setToogleModal } = useContext(ToogleContext)
+  const { user, userPosts, setToogleModal } = useProfile()
 
   if(!user) {
-    return (<IconLoading>
-      <AiOutlineLoading3Quarters />
-    </IconLoading>)
+    return (
+      <IconLoading>
+         <AiOutlineLoading3Quarters />
+      </IconLoading>
+    )
   }
 
   return (

@@ -1,52 +1,20 @@
-import { useRef, useState } from "react"
 import { TitleHome } from "../Home/Home.styled"
 import { ContainerPost, MainPost, Notice } from "./CreatePost.styled"
 import JoditEditor from "jodit-react"
 import { ButtonPagination } from "../../components/Pagination/Pagination.styled"
-import PostServices from "../../services/postsServices"
 import { AiFillWarning } from "react-icons/ai"
 import { Link } from "react-router-dom"
+import useCreatePost from "../../hooks/useCreatePost"
 
 const CreatePost = () => {
 
-  const editor = useRef(null)
-  const { createPost } = PostServices()
-  const [post, setPost] = useState({
-    title: '',
-    banner: '',
-    text: ''
-  })
- 
-  const fieldChange = (event: any) => {
-     setPost({...post, [event.target.name]: event.target.value})
-  }
-
-  const textFieldChange = (data: any) => {
-    setPost({...post, 'text': data})
-  }
-
-  const handleCreatePost = async (event: any) => {
-    event.preventDefault()
-
-    try {
-      if(post.title.trim() === '') {
-        alert('O Titulo não pode ser vazio')
-        return
-      }
-
-      const res = await createPost(post)
-      setPost({
-        title: '',
-        banner: '',
-        text: ''
-      })
-      console.log(res)
-
-    } catch (error) {
-      console.log(error)
-    }
-
-  }
+  const {
+    post,
+    editor,
+    handleCreatePost,
+    fieldChange,
+    textFieldChange
+  } = useCreatePost()
 
   return (
     <ContainerPost>

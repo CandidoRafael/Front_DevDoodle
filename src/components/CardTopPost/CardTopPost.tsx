@@ -2,50 +2,12 @@ import { AiOutlineLike, AiFillLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader } from './CardTopPost.styled'
 import { Link } from 'react-router-dom'
-import PostServices from '../../services/postsServices'
 import { Post } from '../../types/Post'
-import { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../../Context/UserContext'
+import useLikeTopPost from '../../hooks/useLikeTopPost'
 
 const CardTopPost = ({ topPost } : { topPost: Post }) => {
 
-  const { likePost } = PostServices()
-  const { user } = useContext(UserContext)
-  const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
-
-
-  const checkLiked = () => {
-    const likedPosts = JSON.parse(localStorage.getItem(`likeTopPost_${user?._id}`) ?? 'null') || [];
-    return likedPosts.includes(topPost.id);
-  };
-
-  useEffect(() => {
-    setLikeCount(topPost?.likes.length);
-    setIsLiked(checkLiked());
-  }, [user?._id]);
-
-  const handleLike = async () => {
-    try {
-      await likePost(topPost.id);
-      
-      const likedPosts = JSON.parse(localStorage.getItem(`likedPosts_${user?._id}`) ?? 'null') || [];
-     
-      if (isLiked) {
-       
-        localStorage.setItem(`likeTopPost_${user?._id}`, JSON.stringify(likedPosts.filter((id: string) => id !== topPost.id)));
-        setLikeCount(likeCount - 1); 
-      } else {
-       
-        localStorage.setItem(`likeTopPost_${user?._id}`, JSON.stringify([...likedPosts, topPost.id]));
-        setLikeCount(likeCount + 1); 
-      }
-
-      setIsLiked(!isLiked); 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { isLiked, likeCount, handleLike } = useLikeTopPost(topPost)
 
   return (
     <CardContainer>

@@ -29,7 +29,7 @@ export const useLogin = () => {
       const handleFormSignIn = async (data: UserDataLogin) => {
          try {
           const response = await loginMutation(data)
-          console.log(response.data)
+
           Cookies.set("token", response.data, { expires: 1 })
           navigate('/')
           resetSignIn()

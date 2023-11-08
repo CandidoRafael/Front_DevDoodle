@@ -101,6 +101,10 @@ export const CardFooter = styled.article`
       display: flex;
     }
 
+    i {
+      display: flex;
+    }
+
     svg {
       cursor: pointer;
     }

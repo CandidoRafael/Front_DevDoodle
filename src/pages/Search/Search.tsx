@@ -1,28 +1,10 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import PostServices from "../../services/postsServices"
 import { SearchContainer, SearchPosts, TextResults } from "./Search.styled"
 import Card from "../../components/Card/Card"
+import useSearchPosts from "../../hooks/useSearchPost"
 
 const Search = () => {
 
-  const { title } = useParams()
-  const { searchPosts } = PostServices()
-  const [ posts, setPosts ] = useState([])
-
-  const handleSearch = async () => {
-      try {
-        const postApi = await searchPosts(title)
-        setPosts(postApi.foundPosts)
-      } catch (error) {
-        console.log(error)
-        setPosts([])
-      }
-  }
-  
-  useEffect(() => {
-    handleSearch()
-  }, [title])
+  const { posts, title } = useSearchPosts()
 
   return (
     <>

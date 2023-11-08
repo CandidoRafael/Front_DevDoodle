@@ -1,12 +1,14 @@
-import { AiOutlineLike } from 'react-icons/ai'
+import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import { CardBody, CardContainer, CardFooter, CardHeader  } from './Card.styled'
 import { TextLimit } from '../TextLimit/TextLimit'
 import { Link } from 'react-router-dom'
 import { Post } from '../../types/Post'
-
+import useLikePost from '../../hooks/useLikePost'
 
 const Card = ({ post } : { post: Post }) => {
+
+  const { isLiked, likeCount, handleLike } = useLikePost(post)
 
   return (
     <CardContainer>
@@ -28,8 +30,10 @@ const Card = ({ post } : { post: Post }) => {
 
         <CardFooter>
           <section>
-            <AiOutlineLike />
-            <span>{post?.likes?.length}</span>
+            <i onClick={handleLike}>
+            {isLiked ? <AiFillLike /> : <AiOutlineLike />}
+            </i>
+            <span>{likeCount}</span>
           </section>
 
           <section>

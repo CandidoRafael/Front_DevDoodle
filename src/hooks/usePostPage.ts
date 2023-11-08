@@ -32,7 +32,6 @@ const usePostPage = () => {
 }
 
 useEffect(() => {
-    console.log('renderizou o pai')
     handlePost()
     }, [title])
   
