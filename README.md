@@ -1,6 +1,6 @@
 # Projeto DevDoodle
 
-Esse projeto será um blog para publicações sobre tecnologia, dicas e tutoriais.
+Esse projeto é um blog para publicações sobre tecnologia, dicas e tutoriais.
 Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 
 ## Tecnologias utilizadas:
@@ -27,7 +27,7 @@ Qualquer pessoa pode fazer sua publicação para agregar a comunidade tech.
 - Express
 - Node.JS
 
-## Deploy : Loading...
+## Deploy : https://devdoodle.vercel.app/
 
 Se você quiser rodar o projeto na sua máquina, siga estes passos:
 
