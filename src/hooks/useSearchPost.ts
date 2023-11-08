@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+
 import PostServices from '../services/postsServices'
+import { useParams } from 'react-router-dom'
 
 const useSearchPosts = () => {
+  const [titlePost, setTitlePost] = useState('')
   const { title } = useParams()
   const { searchPosts } = PostServices()
   const [ posts, setPosts ] = useState([])
@@ -24,6 +26,8 @@ const useSearchPosts = () => {
   return {
     posts,
     title,
+    titlePost,
+    setTitlePost
   }
 }
 

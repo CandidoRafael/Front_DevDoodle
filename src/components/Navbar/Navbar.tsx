@@ -13,7 +13,7 @@ import { FaUser } from 'react-icons/fa'
 
 const Navbar = () => {
 
-  const { title, setTitle } = useSearchPosts()
+  const { titlePost, setTitlePost } = useSearchPosts()
   const { handleToogleSidebar } = useContext(ToogleContext)
   const { user } = useContext(UserContext)
   useUserLogged()
@@ -28,10 +28,10 @@ const Navbar = () => {
 
           <form>
             <InputSpace>
-                  <input type="text" onChange={(e) => setTitle(e.target.value)} placeholder='Pesquisar' />
+                  <input type="text" onChange={(e) => setTitlePost(e.target.value)} placeholder='Pesquisar' />
                   
-                  <Link to={`/posts/search/${title}`}>
-                  <button disabled={title ? false : true}><BiSearch /></button>
+                  <Link to={`/posts/search/${titlePost}`}>
+                  <button disabled={titlePost ? false : true}><BiSearch /></button>
                   </Link>
             </InputSpace>
           </form>

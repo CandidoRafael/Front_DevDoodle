@@ -20,13 +20,11 @@ const useProfile = () => {
       findAllPostsByUser()
     }, [])
 
-
     return {
         user,
         userPosts,
         setToogleModal
     }
-    
 }
 
 export default useProfile
