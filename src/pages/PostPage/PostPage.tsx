@@ -39,7 +39,7 @@ const PostPage = () => {
       </article>
 
       <PrismWrapper dangerouslySetInnerHTML={{__html: post?.text || ''}}></PrismWrapper>
-
+        
         <AddComments addCommentToPost={addCommentToPost} />
         <Comments comments={comments} deleteComment={handleDelete} />
         <Toaster 

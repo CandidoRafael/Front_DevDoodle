@@ -9,7 +9,6 @@ export const PrismWrapper = styled.article`
 		width: 95%;
 	}
 
-
     pre[class*="language-"],
 code[class*="language-"] {
     border-radius: .4rem;

@@ -9,13 +9,19 @@ import { GrClose } from 'react-icons/gr'
 import { useContext } from "react"
 import { AiOutlineUser } from 'react-icons/ai'
 import { ToogleContext } from "../../Context/ToogleContext"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useLogOut } from '../../hooks/useLogOut'
 
 const Sidebar = () => {
 
   const { toogleSidebar, handleToogleSidebar } = useContext(ToogleContext)
   const { SignOut } = useLogOut()
+  const navigate = useNavigate()
+
+  const handleNavigate = (url: string) => {
+    navigate(url)
+    handleToogleSidebar()
+  }
 
   return (
     
@@ -26,32 +32,32 @@ const Sidebar = () => {
 
       <UlMenu>
 
-        <Link to='/'>
-          <li>
+      
+          <li onClick={() => handleNavigate('/')}>
               <AiOutlineHome />
               Home
           </li>
-        </Link>
+        
         <Link to='/auth'>
-          <li>
+          <li onClick={() => handleNavigate('/auth')}>
             <BiLogInCircle />
             Entrar
           </li>
         </Link>
         <Link to='/createPost'>
-          <li>
+          <li onClick={() => handleNavigate('/createPost')}>
             <MdOutlinePostAdd />
             Criar
           </li>      
         </Link>
         <Link to='/profile'>
-          <li>
+          <li onClick={() => handleNavigate('/profile')}>
             <AiOutlineUser />
             Perfil
           </li>      
         </Link>
         <Link to='/policy'>
-         <li>
+         <li onClick={() => handleNavigate('')}>
             <MdBalance />
             Política de Conteúdo
           </li>

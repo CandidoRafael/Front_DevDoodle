@@ -18,8 +18,9 @@ const useSearchPosts = () => {
         setPosts([])
       }
   }
-  
+
   useEffect(() => {
+    if(title)
     handleSearch()
   }, [title])
 

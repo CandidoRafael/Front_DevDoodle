@@ -84,6 +84,10 @@ export const Notice = styled.section`
    padding: .7rem;
    border-radius: .3rem;
 
+   a {
+      color: blue;
+   }
+
    svg {
       color: darkgoldenrod;
       font-size: 1.6rem;
