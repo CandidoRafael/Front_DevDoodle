@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 
 import PostServices from '../services/postsServices'
 import { useParams } from 'react-router-dom'
+import { Post } from '../types/Post'
 
 const useSearchPosts = () => {
   const [titlePost, setTitlePost] = useState('')
   const { title } = useParams()
   const { searchPosts } = PostServices()
-  const [ posts, setPosts ] = useState([])
+  const [ posts, setPosts ] = useState<Post[] | undefined>()
 
   const handleSearch = async () => {
       try {

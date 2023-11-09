@@ -11,16 +11,6 @@ export type Post = {
     size: string
 }
 
- 
-export type PostResults = {
-    results: Post[]
-}
-
-export type QueryResult<T> = {
-    data: T | undefined;
-    isLoading: boolean;
-  };
-
 
 export type Page<T> = {
     limit: number
@@ -35,4 +25,15 @@ export type PostData = {
     title: string
     banner: string
     text: string
+}
+
+export type Comments = {
+    createdAt: Date,
+    idComment: string,
+    message: string,
+    user: {
+        avatar: string,
+        username: string
+    }
+    userId: string
 }

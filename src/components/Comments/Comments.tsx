@@ -3,8 +3,14 @@ import { useContext, useEffect, useRef } from 'react';
 import { CommentArticle,  IconDeleteComment,  SectionComment } from './Comments.styled'
 import { UserContext } from '../../Context/UserContext';
 import { MdDelete } from 'react-icons/md'
+import { Comments } from '../../types/Post';
 
-const Comments = ({ comments, deleteComment }: any) => {
+type CommentsProps = {
+  comments: Comments[]
+  deleteComment: (id: string) => void
+}
+
+const Comments = ({ comments, deleteComment }: CommentsProps) => {
 
   const { user } = useContext(UserContext)
 
@@ -26,7 +32,7 @@ const Comments = ({ comments, deleteComment }: any) => {
       if(window.location.hash === '#comments' && commentsRef.current) {
         commentsRef.current.scrollIntoView({ behavior: 'smooth' });
       }
-     }, []) 
+     }, [])
   return (
     <>
       <h2>Comentarios ({comments?.length})</h2>

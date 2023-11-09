@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import Cookies from "js-cookie";
-import { User, UserDataLogin, UserDataRegister } from "../types/User";
+import { User, UserDataLogin, UserDataRegister, UserProfile } from "../types/User";
 
 const baseURL = 'https://apidevdoodle.vercel.app'
 
@@ -32,7 +32,7 @@ export const userLogged = (): Promise<AxiosResponse<User>> => {
     return response
 }
 
-export const updateUser = (data: any, _id: string) => {
+export const updateUser = (data: UserProfile, _id: string) => {
     const token = Cookies.get("token");
 
     const headers = {
