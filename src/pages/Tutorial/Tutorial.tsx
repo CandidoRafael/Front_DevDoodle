@@ -33,6 +33,10 @@ function Tutorial() {
               Adicione essa classe de acordo com a linguagem do código 
                <strong>{` <code class='language-javascript'>Código aqui dentro</code>`}</strong>
             </li>
+
+            <li>
+              Quando fizerem o envio da imagem da publicação, procurem imagem de tamanho médio, <strong>650x700</strong>
+            </li>
         </ListTutorial>
 
             <SectionTutorial>

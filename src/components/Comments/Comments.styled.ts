@@ -12,6 +12,10 @@ export const CommentArticle  = styled.article`
   }
 `
 
+export const CommentsTitle = styled.h2`
+text-align: center;
+`
+
 export const SectionComment = styled.section`
     background-color: #fff;
     margin-bottom: .5rem;

@@ -1,6 +1,6 @@
 
 import { useContext, useEffect, useRef } from 'react';
-import { CommentArticle,  IconDeleteComment,  SectionComment } from './Comments.styled'
+import { CommentArticle,  CommentsTitle,  IconDeleteComment,  SectionComment } from './Comments.styled'
 import { UserContext } from '../../Context/UserContext';
 import { MdDelete } from 'react-icons/md'
 import { Comments } from '../../types/Post';
@@ -35,7 +35,7 @@ const Comments = ({ comments, deleteComment }: CommentsProps) => {
      }, [])
   return (
     <>
-      <h2>Comentarios ({comments?.length})</h2>
+      <CommentsTitle>Comentarios ({comments?.length})</CommentsTitle>
     <CommentArticle id='comments' ref={commentsRef}>
      
         {comments?.map((comment: any) => (

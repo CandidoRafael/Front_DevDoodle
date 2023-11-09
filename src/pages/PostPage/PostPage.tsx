@@ -1,5 +1,5 @@
 import { PrismWrapper } from "./Prims.theme"
-import { PostAuthor, PostContainer, PostImage } from "./PostPage.styled"
+import { PostAuthor, PostContainer, PostImage, TitlePost } from "./PostPage.styled"
 import { IconLoading } from "../Home/Home.styled"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
@@ -28,7 +28,7 @@ const PostPage = () => {
      ): (
       <>  
       <article>
-        <h1>{post?.title}</h1>
+        <TitlePost>{post?.title}</TitlePost>
         <PostAuthor>
           <img src={post?.avatar}  alt="Avatar" />
           <p>{post?.username}</p>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PostContainer = styled.main`
     width: 1024px;
     margin: 1rem auto;
-   text-align: center;
+   
    
    @media (max-width: 1024px) {
        width: 80%;
@@ -13,8 +13,11 @@ export const PostContainer = styled.main`
        width: 100%;
    }
 
-    h1{
+`
+
+export const TitlePost = styled.h1`
         width: 80%;
+        text-align: center;
         margin: auto;
         font-size: 36px;
 
@@ -22,7 +25,6 @@ export const PostContainer = styled.main`
             width: 100%;
             font-size: 30px;
         }
-    }
 `
 
 export const PostAuthor = styled.div`

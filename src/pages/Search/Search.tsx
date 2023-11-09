@@ -11,7 +11,7 @@ const Search = () => {
       <SearchContainer>
         <TextResults>
           <span>
-            {posts.length ? `Encontramos ${posts.length} ${
+            {posts?.length ? `Encontramos ${posts.length} ${
               posts.length > 1 ? "resultados" : "resultado"
             } para: `
             : `Não encontramos resultados para: `
@@ -20,7 +20,7 @@ const Search = () => {
           <strong>{title}</strong>
         </TextResults>
         <SearchPosts>
-          {posts.map((post: any) => (
+          {posts?.map((post: any) => (
             <Card
               key={post.id}
               post={post}      
