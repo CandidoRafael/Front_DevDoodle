@@ -48,7 +48,6 @@ const usePostPage = () => {
       })
       } catch (error) {
         console.log(error);
-       
       }
     }
   
