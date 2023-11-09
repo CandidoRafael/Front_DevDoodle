@@ -7,7 +7,6 @@ import Comments from "../../components/Comments/Comments"
 import AddComments from '../../components/AddComments/AddComents'
 import usePostPage from "../../hooks/usePostPage"
 
-
 const PostPage = () => {
 
   const { 

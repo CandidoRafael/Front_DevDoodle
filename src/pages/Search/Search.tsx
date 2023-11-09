@@ -20,7 +20,7 @@ const Search = () => {
           <strong>{title}</strong>
         </TextResults>
         <SearchPosts>
-          {posts?.map((post: any) => (
+          {posts?.map((post) => (
             <Card
               key={post.id}
               post={post}      
