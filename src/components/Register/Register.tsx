@@ -2,10 +2,18 @@ import { useContext } from 'react'
 import { SpanError } from '../../pages/Auth/Auth.styled'
 import { useRegister } from '../../hooks/useRegister'
 import { ToogleContext } from '../../Context/ToogleContext'
+import { BiLoader } from 'react-icons/bi'
 
 const Register = () => {
 
-  const { registerSignUp, handleFormSignUp, handleSubmitSignUp, errorsSignUp } = useRegister()
+  const { 
+    registerSignUp, 
+    handleFormSignUp, 
+    handleSubmitSignUp, 
+    errorsSignUp, 
+    error,
+    isLoading 
+  } = useRegister()
 
   const { toogleBanner, setToogleBanner } = useContext(ToogleContext)
 
@@ -43,7 +51,9 @@ const Register = () => {
         <SpanError>{errorsSignUp.password.message}</SpanError>
         )}
 
-        <button>Cadastrar-se</button>
+         {error ? <SpanError>{error}</SpanError> : null}
+
+         <button>{isLoading ? <i className="loading-icon"><BiLoader /></i> : 'Cadastrar-se'}</button>
         <span 
         className='spanMobile'
         onClick={() => setToogleBanner(!toogleBanner)}

@@ -5,8 +5,14 @@ import { useNavigate } from "react-router-dom"
 import { UserDataRegister } from "../types/User"
 import { SignUp } from "../services/userServices"
 import Cookies from "js-cookie"
+import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
 
 export const useRegister = () => {
+
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
+
     const {
         register: registerSignUp,
         handleSubmit: handleSubmitSignUp,
@@ -20,24 +26,27 @@ export const useRegister = () => {
         }
       })
       
-      const navigate = useNavigate()
+      const { mutateAsync: registerMutation, isLoading } = useMutation({
+        mutationFn: SignUp
+        })
   
       const handleFormSignUp = async (data: UserDataRegister) => {
         
         try {
-          const response = await SignUp(data)
-          Cookies.set("token", response.data.token, { expires: 1 })
-          console.log(response)
-          navigate('/')
+          const response = await registerMutation(data)
+          Cookies.set("token", response.data, { expires: 1 })
           resetCreate()
-        } catch (error) {
-          console.log(error)
+          navigate('/')
+        } catch (error: any) {
+          setError(error.response.data)
         }
       }
       return {
         registerSignUp,
         handleFormSignUp,
         handleSubmitSignUp,
-        errorsSignUp
+        errorsSignUp,
+        error,
+        isLoading
       }
 }
