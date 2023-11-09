@@ -23,16 +23,19 @@ const usePostPage = () => {
         setComments(res.foundPosts[0].comments)
         setLoading(false)
         
-        Prism.highlightAll()
-      
-    } catch (error) {
+        
+        setTimeout(() => {
+          Prism.highlightAll()
+        }, 1000)
+        
+      } catch (error) {
         console.log(error)
         setLoading(true)
+      }
     }
-}
-
-useEffect(() => {
-    handlePost()
+    
+    useEffect(() => {
+      handlePost()
     }, [title])
   
     const addCommentToPost = async (comment: any) => {
