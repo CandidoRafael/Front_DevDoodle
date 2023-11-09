@@ -47,7 +47,7 @@ const Profile = () => {
      </ProfileHeader>
 
       <ProfilePosts>
-        {userPosts.length ? (
+        {userPosts?.length ? (
           userPosts?.map((post: Post) => (
             <Card
               key={post.id}
